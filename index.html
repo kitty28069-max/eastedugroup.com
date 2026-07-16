@@ -1,4 +1,4 @@
-html_content = """<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
@@ -6,9 +6,10 @@ html_content = """<!DOCTYPE html>
     <title>東德教育集團 | 頂級客製化升學與專業一對一課輔機構</title>
     <meta name="description" content="東德教育集團深耕內湖。引領108課綱素養教育，提供國小、國中、高中全科精密指導、私中頂尖衝刺班、及獨家SESS一對一客製化課程。七天免費試聽預約中。">
     
+    <!-- 預連線至 Google 字體伺服器 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Playfair+Display:ital,wght=0,600;1,600&display=swap" rel="stylesheet">
     
     <style>
         /* -------------------------------------------------------------
@@ -88,6 +89,7 @@ html_content = """<!DOCTYPE html>
             display: flex;
             align-items: center;
             gap: 12px;
+            z-index: 1100;
         }
 
         .logo-icon {
@@ -170,12 +172,45 @@ html_content = """<!DOCTYPE html>
             font-weight: 700;
             font-size: 14px;
             box-shadow: 0 4px 15px rgba(184, 29, 36, 0.2);
+            white-space: nowrap;
         }
 
         .header-cta:hover {
             background-color: var(--primary-darkred);
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(184, 29, 36, 0.3);
+        }
+
+        /* 漢堡選單按鈕 */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            z-index: 1100;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background-color: var(--secondary-navy);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        /* 漢堡按鈕動畫效果 */
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
         }
 
         /* -------------------------------------------------------------
@@ -350,7 +385,7 @@ html_content = """<!DOCTYPE html>
 
         .pillars-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 32px;
         }
 
@@ -405,7 +440,7 @@ html_content = """<!DOCTYPE html>
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
             gap: 40px;
         }
 
@@ -579,7 +614,7 @@ html_content = """<!DOCTYPE html>
         ------------------------------------------------------------- */
         .sess-flow-container {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 24px;
             margin: 50px 0;
         }
@@ -623,7 +658,7 @@ html_content = """<!DOCTYPE html>
         ------------------------------------------------------------- */
         .testimonial-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
             gap: 32px;
         }
 
@@ -676,7 +711,7 @@ html_content = """<!DOCTYPE html>
         ------------------------------------------------------------- */
         .branch-card-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 40px;
             margin-bottom: 60px;
         }
@@ -719,6 +754,7 @@ html_content = """<!DOCTYPE html>
             width: 100px;
             font-weight: 700;
             color: var(--secondary-navy);
+            flex-shrink: 0;
         }
 
         .info-row-value {
@@ -898,38 +934,99 @@ html_content = """<!DOCTYPE html>
         }
 
         /* -------------------------------------------------------------
-           11. 響應式佈局適配 (RWD Options)
+           11. 響應式佈局與 iPad / 手機適配 (RWD Rules)
         ------------------------------------------------------------- */
         @media (max-width: 1024px) {
+            /* 導覽列變更為行動裝置模式（漢堡選單） */
+            .menu-toggle {
+                display: flex;
+            }
+
+            header nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background-color: white;
+                box-shadow: -5px 0 30px rgba(0,0,0,0.1);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                padding: 100px 40px;
+                gap: 30px;
+                transition: var(--transition);
+                z-index: 1050;
+            }
+
+            header nav.active {
+                right: 0;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                gap: 20px;
+                width: 100%;
+            }
+
+            .nav-menu li a {
+                font-size: 18px;
+                display: block;
+                width: 100%;
+            }
+
+            .header-cta {
+                width: 100%;
+                text-align: center;
+            }
+
+            /* 首頁大主視覺調整 */
             .hero-inner h2 { font-size: 42px; }
+            .hero-inner p { font-size: 16px; }
+
+            /* 數據成就欄調整為雙欄 */
             .stats-bar { grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: -40px; }
             .stat-item { border-right: none; }
-            .pillars-grid { grid-template-columns: 1fr; }
+            
+            /* 網格改單欄 */
             .quick-grid { grid-template-columns: 1fr; }
             .grid-two-col { grid-template-columns: 1fr; }
-            .sess-flow-container { grid-template-columns: repeat(2, 1fr); }
             .testimonial-grid { grid-template-columns: 1fr; }
-            .branch-card-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
-            header { flex-direction: column; gap: 16px; text-align: center; }
-            nav { flex-direction: column; gap: 16px; width: 100%; }
-            .nav-menu { flex-direction: column; align-items: center; gap: 14px; }
-            .header-cta { width: 100%; text-align: center; }
-            .hero-buttons { flex-direction: column; gap: 12px; }
+            .hero-section { padding: 100px 4% 120px; }
+            .hero-inner h2 { font-size: 32px; }
+            .stats-bar { grid-template-columns: 1fr; padding: 24px; }
+            
+            .section-header h2 { font-size: 28px; }
+            
             .course-layout-box { padding: 24px; }
+            .course-title-tag { font-size: 20px; flex-direction: column; align-items: flex-start; gap: 8px; }
+            
             .appointment-form-container { padding: 24px; }
             .form-grid { grid-template-columns: 1fr; }
             .form-group.full-width { grid-column: span 1; }
-            .info-table { display: block; overflow-x: auto; }
-            .sess-flow-container { grid-template-columns: 1fr; }
+            
+            /* 表格防破版，讓其可橫向滾動 */
+            .info-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            
+            /* 讓首頁導覽小卡在小螢幕改為垂直堆疊 */
+            .quick-box { flex-direction: column; }
+            .quick-img { width: 100%; height: 200px; }
+            .quick-content { width: 100%; padding: 24px; }
+
+            .floating-action-container { bottom: 20px; right: 20px; }
+            .float-btn { width: 50px; height: 50px; font-size: 11px; }
+
+            .footer-bottom { flex-direction: column; gap: 15px; text-align: center; }
         }
     </style>
 </head>
 <body>
 
+    <!-- 頂部導覽列 -->
     <div class="header-container">
         <header>
             <div class="logo-area">
@@ -939,6 +1036,12 @@ html_content = """<!DOCTYPE html>
                     <p>East Education Group</p>
                 </div>
             </div>
+            <!-- 漢堡按鈕 (Mobile/iPad 專用) -->
+            <button class="menu-toggle" aria-label="選單開關">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <nav>
                 <ul class="nav-menu">
                     <li class="nav-item active" data-target="home"><a href="#home">首頁精選</a></li>
@@ -954,6 +1057,9 @@ html_content = """<!DOCTYPE html>
         </header>
     </div>
 
+    <!-- ＝=========================================
+         分頁一：首頁精選 (Home View)
+         ========================================== -->
     <main id="home" class="page-view active-view">
         <section class="hero-section">
             <div class="hero-inner">
@@ -967,6 +1073,7 @@ html_content = """<!DOCTYPE html>
             </div>
         </section>
 
+        <!-- 數據成就欄 -->
         <section class="stats-bar">
             <div class="stat-item">
                 <div class="stat-number">94.6%</div>
@@ -986,6 +1093,7 @@ html_content = """<!DOCTYPE html>
             </div>
         </section>
 
+        <!-- 三大核心教育柱石 -->
         <section class="pillars-section">
             <div class="section-header">
                 <span class="section-badge">東德核心價值</span>
@@ -1011,6 +1119,7 @@ html_content = """<!DOCTYPE html>
             </div>
         </section>
 
+        <!-- 快速分頁引導區塊 -->
         <section class="quick-nav-section">
             <div class="section-header">
                 <span class="section-badge">課程導覽</span>
@@ -1054,13 +1163,17 @@ html_content = """<!DOCTYPE html>
         </section>
     </main>
 
+    <!-- ＝=========================================
+         分頁二：國小專區 (Elementary View)
+         ========================================== -->
     <div id="elementary" class="page-view detail-page-padding">
         <div class="section-header">
             <span class="section-badge">ELEMENTARY PROGRAM</span>
-            <h2>國小黃金啟蒙與頂尖私中專班</h2>
+            <h2>國小黃金啟盟與頂尖私中專班</h2>
             <p>在混亂的教改洪流中，國小高年級是決定孩子未來數理邏輯與語文廣度的分水嶺。東德採取超前部署策略，穩紮穩打。</p>
         </div>
 
+        <!-- 區塊1: 平日正英美語專班 -->
         <div class="course-layout-box">
             <div class="course-title-tag">平日正英美語菁英專班 (1-4年級 / 5-6年級)</div>
             <p class="course-subtitle">對標歐洲共同語言參考標準 (CEFR)，全面擺脫傳統台式死背英文。融合跨學科素養閱讀 (CLIL)，讓英文成為探索世界的工具而非單純學科。</p>
@@ -1094,6 +1207,7 @@ html_content = """<!DOCTYPE html>
             </ul>
         </div>
 
+        <!-- 區塊2: 資優數學思考特訓班 -->
         <div class="course-layout-box">
             <div class="course-title-tag">資優數學思考特訓班 (奠基與拔尖)</div>
             <p class="course-subtitle">跳脫公式框架，著重於「問題解決」與「空間圖形幾何推理」。透過七大數理核心主題，啟發孩子自發性的邏輯辯證實力。</p>
@@ -1120,6 +1234,7 @@ html_content = """<!DOCTYPE html>
             </table>
         </div>
 
+        <!-- 區塊3: 私中考點全科衝刺專班 -->
         <div class="course-layout-box">
             <div class="course-title-tag">頂尖私中全科精密衝刺專班 (目標：薇閣、延平、東山、再興等)</div>
             <p class="course-subtitle">針對大台北地區頂尖私立中學入學潛能測驗量身打造。極高密度的魔鬼全科複習，歷年錄取率傲視內湖，協助孩子高分搶佔明星私中正取名額。</p>
@@ -1136,6 +1251,9 @@ html_content = """<!DOCTYPE html>
         </div>
     </div>
 
+    <!-- ＝=========================================
+         分頁三：國中專區 (Junior High View)
+         ========================================== -->
     <div id="junior" class="page-view detail-page-padding">
         <div class="section-header">
             <span class="section-badge">JUNIOR HIGH SUPERIOR</span>
@@ -1182,6 +1300,9 @@ html_content = """<!DOCTYPE html>
         </div>
     </div>
 
+    <!-- ＝=========================================
+         分頁四：高中專區 (Senior High View)
+         ========================================== -->
     <div id="senior" class="page-view detail-page-padding">
         <div class="section-header">
             <span class="section-badge">SENIOR HIGH ELITE</span>
@@ -1235,6 +1356,9 @@ html_content = """<!DOCTYPE html>
         </div>
     </div>
 
+    <!-- ＝=========================================
+         分頁五：SESS 一對一專業教學 (SESS One-on-One View)
+         ========================================== -->
     <div id="sess" class="page-view detail-page-padding">
         <div class="section-header">
             <span class="section-badge">SESS INDIVIDUAL CUSTOMIZED</span>
@@ -1292,6 +1416,9 @@ html_content = """<!DOCTYPE html>
         </div>
     </div>
 
+    <!-- ＝=========================================
+         分頁六：家長口碑與進步榜單 (Feedback View)
+         ========================================== -->
     <div id="feedback" class="page-view detail-page-padding">
         <div class="section-header">
             <span class="section-badge">PARENTS TRUST & HONOR</span>
@@ -1328,6 +1455,9 @@ html_content = """<!DOCTYPE html>
         </div>
     </div>
 
+    <!-- ＝=========================================
+         分頁七：關於分校與諮詢 (Branches View)
+         ========================================== -->
     <div id="branches" class="page-view detail-page-padding">
         <div class="section-header">
             <span class="section-badge">CAMPUS LOCATIONS & TRIAL</span>
@@ -1335,6 +1465,7 @@ html_content = """<!DOCTYPE html>
             <p>東德在內湖區設有兩大頂級旗艦校區，均配備全自動智能進出安防系統、人體工學健康課桌椅、以及全區高規空氣淨化系統，給孩子最安心舒適的奮鬥環境。</p>
         </div>
 
+        <!-- 分校卡片佈局 -->
         <div class="branch-card-grid">
             <div class="branch-detail-box">
                 <div class="branch-header-banner">
@@ -1387,6 +1518,7 @@ html_content = """<!DOCTYPE html>
             </div>
         </div>
 
+        <!-- 諮詢表單區 -->
         <div class="appointment-form-container">
             <h3 style="text-align: center; font-size: 26px; color: var(--secondary-navy); margin-bottom: 8px; font-weight: 700;">預約 7 天免費適性試聽與學力診斷</h3>
             <p style="text-align: center; color: var(--text-muted); font-size: 14px; margin-bottom: 36px;">請填寫下方精密諮詢表單，教務主任將於24小時內致電與您確認入班診斷時間。</p>
@@ -1447,11 +1579,13 @@ html_content = """<!DOCTYPE html>
         </div>
     </div>
 
+    <!-- 常駐聯絡按鈕 -->
     <div class="floating-action-container">
         <a href="https://line.me" target="_blank" class="float-btn float-line">LINE<br>諮詢</a>
         <a href="tel:0226306133" class="float-btn float-phone">撥打<br>電話</a>
     </div>
 
+    <!-- 高級頁尾 -->
     <footer>
         <div class="footer-grid">
             <div class="footer-brand">
@@ -1495,6 +1629,7 @@ html_content = """<!DOCTYPE html>
         </div>
     </footer>
 
+    <!-- 核心單頁應用切換 JavaScript 邏輯 -->
     <script>
         function switchView(targetViewId) {
             // 1. 隱藏所有頁面視圖
@@ -1522,6 +1657,17 @@ html_content = """<!DOCTYPE html>
 
         // 接管所有點擊事件與 Hash 錨點
         document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('header nav');
+
+            // 漢堡選單展開/收合
+            if (menuToggle && nav) {
+                menuToggle.addEventListener('click', () => {
+                    menuToggle.classList.toggle('active');
+                    nav.classList.toggle('active');
+                });
+            }
+
             const navItems = document.querySelectorAll('.nav-item');
             navItems.forEach(item => {
                 item.addEventListener('click', (e) => {
@@ -1530,6 +1676,12 @@ html_content = """<!DOCTYPE html>
                     switchView(target);
                     // 同步更新瀏覽器網址 Hash，避免使用者混淆
                     history.pushState(null, null, '#' + target);
+
+                    // 點選選單項目後，自動關閉手機版選單
+                    if (menuToggle && nav) {
+                        menuToggle.classList.remove('active');
+                        nav.classList.remove('active');
+                    }
                 });
             });
 
@@ -1550,9 +1702,3 @@ html_content = """<!DOCTYPE html>
     </script>
 </body>
 </html>
-"""
-
-with open("index.html", "w", encoding="utf-8") as f:
-    f.write(html_content)
-
-print("index.html successfully generated.")
