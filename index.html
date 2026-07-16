@@ -229,11 +229,11 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* 可重複使用的區塊標題元件 */
+        /* 可重複使用的區塊標題與滿版橫幅圖片 */
         .section-header {
             text-align: center;
             max-width: 800px;
-            margin: 0 auto 60px;
+            margin: 0 auto 40px;
             padding: 0 20px;
         }
 
@@ -261,6 +261,22 @@
         .section-header p {
             color: var(--text-muted);
             font-size: 16px;
+        }
+
+        /* 高寬度子頁面情境圖 */
+        .subpage-banner-container {
+            max-width: 1400px;
+            margin: 0 auto 50px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            height: 350px;
+        }
+
+        .subpage-banner-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* -------------------------------------------------------------
@@ -391,10 +407,12 @@
         .pillar-card {
             background: var(--bg-card);
             border-radius: 12px;
-            padding: 48px 36px;
+            padding: 36px 28px;
             box-shadow: var(--shadow-sm);
             border: 1px solid var(--border-light);
             transition: var(--transition);
+            display: flex;
+            flex-direction: column;
         }
 
         .pillar-card:hover {
@@ -403,24 +421,24 @@
             border-color: rgba(184, 29, 36, 0.2);
         }
 
-        .pillar-icon {
-            width: 60px;
-            height: 60px;
-            background-color: rgba(184,29,36,0.06);
-            border-radius: 12px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--primary-red);
-            font-size: 24px;
-            font-weight: 700;
+        .pillar-img-wrap {
+            width: 100%;
+            height: 180px;
+            border-radius: 8px;
+            overflow: hidden;
             margin-bottom: 24px;
+        }
+
+        .pillar-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .pillar-card h3 {
             font-size: 22px;
             color: var(--secondary-navy);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             font-weight: 700;
         }
 
@@ -677,15 +695,18 @@
         }
 
         .testi-avatar {
-            width: 50px;
-            height: 50px;
-            background: var(--secondary-navy);
-            color: white;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: 700;
+            overflow: hidden;
+            border: 2px solid var(--primary-red);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .testi-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .testi-meta h5 {
@@ -721,6 +742,18 @@
             border: 1px solid var(--border-light);
             overflow: hidden;
             box-shadow: var(--shadow-sm);
+        }
+
+        .branch-header-img {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .branch-header-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .branch-header-banner {
@@ -992,6 +1025,7 @@
             .grid-two-col { grid-template-columns: 1fr; }
             .testimonial-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; }
+            .subpage-banner-container { height: 240px; }
         }
 
         @media (max-width: 768px) {
@@ -1020,6 +1054,7 @@
             .float-btn { width: 50px; height: 50px; font-size: 11px; }
 
             .footer-bottom { flex-direction: column; gap: 15px; text-align: center; }
+            .subpage-banner-container { height: 180px; }
         }
     </style>
 </head>
@@ -1054,6 +1089,9 @@
         </header>
     </div>
 
+    <!-- -------------------------------------------------------------
+       1. 首頁區塊 (Home View)
+    ------------------------------------------------------------- -->
     <main id="home" class="page-view active-view">
         <section class="hero-section">
             <div class="hero-inner">
@@ -1094,17 +1132,23 @@
             </div>
             <div class="pillars-grid">
                 <div class="pillar-card">
-                    <div class="pillar-icon">01</div>
+                    <div class="pillar-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="精準數據分析">
+                    </div>
                     <h3>精準大數據診斷</h3>
                     <p>捨棄傳統題海戰術。學生入班即進行全方位學力微觀診斷，揪出知識核心盲點，僅針對弱項進行封閉式精準打擊，讀書效率加倍提升。</p>
                 </div>
                 <div class="pillar-card">
-                    <div class="pillar-icon">02</div>
+                    <div class="pillar-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80" alt="優質課綱教材">
+                    </div>
                     <h3>108課綱素養導向教材</h3>
                     <p>因應最新考題潮流，研發團隊量身打造「跨領域素養題庫」與「新型態混合題組」，擺脫死記硬背，提早培養圖表整合與邏輯推論實力。</p>
                 </div>
                 <div class="pillar-card">
-                    <div class="pillar-icon">03</div>
+                    <div class="pillar-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" alt="雙軌導師">
+                    </div>
                     <h3>獨家雙軌導師照護</h3>
                     <p>每位學生配置「全科權威講師」進行課業解惑，並搭配「精緻班系導師」進行心理建設、進度控管與家長即時回報，築起最嚴密的防護網。</p>
                 </div>
@@ -1119,7 +1163,7 @@
             </div>
             <div class="quick-grid">
                 <div class="quick-box">
-                    <div class="quick-img" style="background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="quick-img" style="background-image: url('https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=600&q=80');"></div>
                     <div class="quick-content">
                         <h3>國小全面奠基與私中專班</h3>
                         <p>平日正英美語精緻引導、資優數學思考特訓，以及針對北部頂尖私中入學考的黃金全科衝刺計畫。</p>
@@ -1154,11 +1198,19 @@
         </section>
     </main>
 
+    <!-- -------------------------------------------------------------
+       2. 國小專區 (Elementary View)
+    ------------------------------------------------------------- -->
     <div id="elementary" class="page-view detail-page-padding">
         <div class="section-header">
             <span class="section-badge">ELEMENTARY PROGRAM</span>
-            <h2>國小黃金啟盟與頂尖私中專班</h2>
+            <h2>國小黃金啟蒙與頂尖私中專班</h2>
             <p>在混亂的教改洪流中，國小高年級是決定孩子未來數理邏輯與語文廣度的分水嶺。東德採取超前部署策略，穩紮穩打。</p>
+        </div>
+
+        <!-- 國小特色主圖 -->
+        <div class="subpage-banner-container">
+            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1400&q=80" class="subpage-banner-img" alt="國小生開心學習">
         </div>
 
         <div class="course-layout-box">
@@ -1236,11 +1288,19 @@
         </div>
     </div>
 
+    <!-- -------------------------------------------------------------
+       3. 國中專區 (Junior High View)
+    ------------------------------------------------------------- -->
     <div id="junior" class="page-view detail-page-padding">
         <div class="section-header">
             <span class="section-badge">JUNIOR HIGH SUPERIOR</span>
             <h2>國中會考頂尖 A++ 精密戰略班</h2>
             <p>面對國中會考 (CAPA) 三等級四標示的殘酷考驗，一題之差即決定是否與建中、北一女、師大附中擦身而過。東德以全面A++為終極考核指標。</p>
+        </div>
+
+        <!-- 國中專屬情境圖 -->
+        <div class="subpage-banner-container">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80" class="subpage-banner-img" alt="專注的國中生與錯題本">
         </div>
 
         <div class="course-layout-box">
@@ -1282,11 +1342,19 @@
         </div>
     </div>
 
+    <!-- -------------------------------------------------------------
+       4. 高中專區 (Senior High View)
+    ------------------------------------------------------------- -->
     <div id="senior" class="page-view detail-page-padding">
         <div class="section-header">
             <span class="section-badge">SENIOR HIGH ELITE</span>
             <h2>高中新制學測與分科測驗頂標班</h2>
             <p>108課綱新制下，高中生面臨的是「學測素養題型、混合題型、手寫獨立計分、學習歷程檔案」的多重夾擊。東德全方位助你考取醫學系、台清交成政等頂尖志願。</p>
+        </div>
+
+        <!-- 高中專屬情境圖 -->
+        <div class="subpage-banner-container">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80" class="subpage-banner-img" alt="高中生討論與學習歷程">
         </div>
 
         <div class="course-layout-box">
@@ -1335,11 +1403,19 @@
         </div>
     </div>
 
+    <!-- -------------------------------------------------------------
+       5. SESS 一對一專區 (SESS One-on-One View)
+    ------------------------------------------------------------- -->
     <div id="sess" class="page-view detail-page-padding">
         <div class="section-header">
             <span class="section-badge">SESS INDIVIDUAL CUSTOMIZED</span>
             <h2>SESS 頂級客製化一對一專業教學</h2>
             <p>每位孩子都是獨一無二的個體。當集體上課無法精準解決孩子的個別落後或超前需求時，東德 SESS (Systematic Educational Support System) 一對一系統是您的終極解決方案。</p>
+        </div>
+
+        <!-- 一對一專屬情境圖 -->
+        <div class="subpage-banner-container">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80" class="subpage-banner-img" alt="SESS一對一精準教學">
         </div>
 
         <div class="course-layout-box">
@@ -1392,6 +1468,9 @@
         </div>
     </div>
 
+    <!-- -------------------------------------------------------------
+       6. 家長口碑專區 (Feedback View)
+    ------------------------------------------------------------- -->
     <div id="feedback" class="page-view detail-page-padding">
         <div class="section-header">
             <span class="section-badge">PARENTS TRUST & HONOR</span>
@@ -1402,7 +1481,9 @@
         <div class="testimonial-grid">
             <div class="testi-card">
                 <div class="testi-student-info">
-                    <div class="testi-avatar">陳</div>
+                    <div class="testi-avatar">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&h=150&q=80" alt="游媽媽頭像">
+                    </div>
                     <div class="testi-meta">
                         <h5>陳媽媽 (麗山國中九年級 游○杰之母親)</h5>
                         <p>成果：會考數學從 B+ 狂飆逆襲至 A++，順利錄取前三志願</p>
@@ -1415,30 +1496,38 @@
 
             <div class="testi-card">
                 <div class="testi-student-info">
-                    <div class="testi-avatar">林</div>
+                    <div class="testi-avatar">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80" alt="林爸爸頭像">
+                    </div>
                     <div class="testi-meta">
-                        <h5>林爸爸 (內湖高中三年級 林○涵之父親)</h5>
+                        <h5>林爸爸 (內湖高中十二年級 林○涵之父親)</h5>
                         <p>成果：學測英文勇奪15滿級分、順利繁星推薦錄取國立陽明交通大學</p>
                     </div>
                 </div>
                 <p class="testi-text">
-                    「女兒的英文閱讀速度一直學測英文作文字數與論述深度要求極高。東德建立專門英文寫作改作機制，由名師親筆修正文法、用字與邏輯架構，將作文穩穩推向15分以上之大考頂標階梯。國文方面則針對「知性」與「感性」兩大國寫題型進行結構化範文剖析。」
+                    「女兒的英文閱讀速度一直是大考的致命傷，作文也時常拿不到高分。加入東德高中頂標班後，英文老師一字一句幫她修正英作文，甚至給了她很多萬用句型和高級詞彙庫。在最後這半年的寫作磨練中，她從原本抗拒寫英文，到最後能夠在學測戰場上冷靜寫出驚艷閱卷老師的文章，拿到滿級分真的是實至名歸！強力推薦東德的精準修潤服務！」
                 </p>
             </div>
         </div>
     </div>
 
+    <!-- -------------------------------------------------------------
+       7. 分校與諮詢區塊 (Branches View)
+    ------------------------------------------------------------- -->
     <div id="branches" class="page-view detail-page-padding">
         <div class="section-header">
             <span class="section-badge">CAMPUS LOCATIONS & FEEDBACK</span>
             <h2>實體分校資訊與家長意見回饋</h2>
-            <p>東德在內湖區設有兩大校區。無論您有任何關於課程、環境、師資的意見，歡迎透過下方表單直接向管理團隊反映。</p>
+            <p>東德在內湖區設有兩大頂級旗艦校區。無論您有任何關於課程、環境、師資的意見，歡迎透過下方表單直接向管理團隊反映。</p>
         </div>
 
         <div class="branch-card-grid">
             <div class="branch-detail-box">
+                <div class="branch-header-img">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="東湖校區教室">
+                </div>
                 <div class="branch-header-banner">
-                    <h3>東湖校區 </h3>
+                    <h3>東湖校區 (東湖旗艦館)</h3>
                     <p>東湖與康寧學子的最頂尖升學基地</p>
                 </div>
                 <div class="branch-body-content">
@@ -1462,8 +1551,11 @@
             </div>
 
             <div class="branch-detail-box">
+                <div class="branch-header-img">
+                    <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80" alt="麗山校區教室">
+                </div>
                 <div class="branch-header-banner" style="background-color: var(--primary-red);">
-                    <h3>麗山校區 </h3>
+                    <h3>麗山校區 (麗山頂尖館)</h3>
                     <p>專注頂尖拔尖與高難度私中、特招策略基地</p>
                 </div>
                 <div class="branch-body-content">
