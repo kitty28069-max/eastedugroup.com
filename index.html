@@ -1,0 +1,1558 @@
+html_content = """<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>東德教育集團 | 頂級客製化升學與專業一對一課輔機構</title>
+    <meta name="description" content="東德教育集團深耕內湖。引領108課綱素養教育，提供國小、國中、高中全科精密指導、私中頂尖衝刺班、及獨家SESS一對一客製化課程。七天免費試聽預約中。">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* -------------------------------------------------------------
+           1. 全域變數與重設 (Design System & Reset)
+        ------------------------------------------------------------- */
+        :root {
+            --primary-red: #B81D24;       /* 核心標準色：學院深紅 */
+            --primary-darkred: #8A1218;   /* 深紅懸停與重點強調 */
+            --secondary-navy: #111E38;    /* 輔助信任色：深邃海軍藍 */
+            --accent-gold: #D4AF37;       /* 榮譽與質感動態金 */
+            --bg-light: #FDFBFA;          /* 精緻溫潤淺米白背景 */
+            --bg-card: #FFFFFF;           /* 純白卡片背景 */
+            --text-dark: #22252A;         /* 高對比內文黑 */
+            --text-muted: #5A6270;        /* 次要說明灰 */
+            --border-light: #EAECEF;      /* 質感細邊框 */
+            --shadow-sm: 0 4px 12px rgba(184, 29, 36, 0.04);
+            --shadow-md: 0 10px 30px rgba(17, 30, 56, 0.06);
+            --shadow-lg: 0 20px 50px rgba(17, 30, 56, 0.12);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.75;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        /* -------------------------------------------------------------
+           2. 頂部導覽列 (Sticky Navigation)
+        ------------------------------------------------------------- */
+        .header-container {
+            background-color: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        header {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 18px 4%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            background-color: var(--primary-red);
+            color: white;
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 900;
+            font-size: 22px;
+            letter-spacing: 1px;
+        }
+
+        .logo-text h1 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--secondary-navy);
+            letter-spacing: 1.5px;
+            line-height: 1.2;
+        }
+
+        .logo-text p {
+            font-size: 11px;
+            color: var(--primary-red);
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-menu li a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--secondary-navy);
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .nav-menu li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--primary-red);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        .nav-menu li a:hover::after,
+        .nav-menu li.active a::after {
+            width: 100%;
+        }
+
+        .nav-menu li.active a {
+            color: var(--primary-red);
+            font-weight: 700;
+        }
+
+        .header-cta {
+            background-color: var(--primary-red);
+            color: white !important;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 14px;
+            box-shadow: 0 4px 15px rgba(184, 29, 36, 0.2);
+        }
+
+        .header-cta:hover {
+            background-color: var(--primary-darkred);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(184, 29, 36, 0.3);
+        }
+
+        /* -------------------------------------------------------------
+           3. 核心分頁架構控管 (SPA View Controller)
+        ------------------------------------------------------------- */
+        .page-view {
+            display: none;
+            animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .page-view.active-view {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 可重複使用的區塊標題元件 */
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+
+        .section-badge {
+            color: var(--primary-red);
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 12px;
+            background-color: rgba(184, 29, 36, 0.06);
+            padding: 4px 16px;
+            border-radius: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--secondary-navy);
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
+        /* -------------------------------------------------------------
+           4. 分頁內容：首頁 (Home View)
+        ------------------------------------------------------------- */
+        /* Hero 大橫幅 */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(17, 30, 56, 0.95) 30%, rgba(138, 18, 24, 0.4) 100%), 
+                        url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: white;
+            padding: 140px 4% 160px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero-tag {
+            color: var(--accent-gold);
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 4px;
+            margin-bottom: 24px;
+        }
+
+        .hero-inner h2 {
+            font-size: 56px;
+            font-weight: 900;
+            line-height: 1.3;
+            margin-bottom: 28px;
+            letter-spacing: 2px;
+        }
+
+        .hero-inner p {
+            font-size: 18px;
+            color: rgba(255,255,255,0.85);
+            max-width: 750px;
+            margin: 0 auto 48px;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-red);
+            color: white;
+            padding: 16px 36px;
+            font-weight: 700;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(184,29,36,0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-darkred);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            border: 2px solid rgba(255,255,255,0.4);
+            color: white;
+            padding: 14px 34px;
+            font-weight: 700;
+            border-radius: 50px;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255,255,255,0.1);
+            border-color: white;
+        }
+
+        /* 數據成就欄 */
+        .stats-bar {
+            max-width: 1200px;
+            margin: -60px auto 0;
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stat-item {
+            border-right: 1px solid var(--border-light);
+        }
+
+        .stat-item:last-child {
+            border-right: none;
+        }
+
+        .stat-number {
+            font-size: 40px;
+            font-weight: 900;
+            color: var(--primary-red);
+            line-height: 1.2;
+            margin-bottom: 6px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* 核心理念三大策略 */
+        .pillars-section {
+            padding: 100px 4%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .pillar-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 48px 36px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(184, 29, 36, 0.2);
+        }
+
+        .pillar-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(184,29,36,0.06);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary-red);
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .pillar-card h3 {
+            font-size: 22px;
+            color: var(--secondary-navy);
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .pillar-card p {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        /* 快速導覽佈局（首頁引導至分頁） */
+        .quick-nav-section {
+            background-color: #F5F2F0;
+            padding: 100px 4%;
+        }
+
+        .quick-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .quick-box {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            transition: var(--transition);
+        }
+
+        .quick-box:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-md);
+        }
+
+        .quick-img {
+            width: 40%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .quick-content {
+            width: 60%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .quick-content h3 {
+            font-size: 24px;
+            color: var(--secondary-navy);
+            margin-bottom: 12px;
+        }
+
+        .quick-content p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .quick-link {
+            color: var(--primary-red);
+            font-weight: 700;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* -------------------------------------------------------------
+           5. 分頁內容：國小專區 (Elementary View)
+        ------------------------------------------------------------- */
+        .detail-page-padding {
+            padding: 80px 4% 100px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .course-layout-box {
+            background: white;
+            border-radius: 16px;
+            border: 1px solid var(--border-light);
+            padding: 50px;
+            margin-bottom: 50px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .course-title-tag {
+            font-size: 28px;
+            color: var(--secondary-navy);
+            font-weight: 700;
+            margin-bottom: 24px;
+            border-left: 5px solid var(--primary-red);
+            padding-left: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .course-subtitle {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            max-width: 900px;
+        }
+
+        /* 高密度專業表格設定 */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            font-size: 15px;
+        }
+
+        .info-table th {
+            background-color: var(--secondary-navy);
+            color: white;
+            font-weight: 700;
+            text-align: left;
+            padding: 16px 20px;
+            border: 1px solid var(--secondary-navy);
+        }
+
+        .info-table td {
+            padding: 16px 20px;
+            border: 1px solid var(--border-light);
+            color: var(--text-dark);
+        }
+
+        .info-table tr:nth-child(even) td {
+            background-color: #FAFBFD;
+        }
+
+        .highlight-td {
+            font-weight: 700;
+            color: var(--primary-red) !important;
+        }
+
+        /* 核心特色清單項目 */
+        .feature-bullet-list {
+            list-style: none;
+            margin-top: 24px;
+        }
+
+        .feature-bullet-list li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 14px;
+            font-size: 15px;
+            color: var(--text-dark);
+        }
+
+        .feature-bullet-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-red);
+            font-weight: 900;
+            font-size: 16px;
+        }
+
+        /* -------------------------------------------------------------
+           6. 分頁內容：國中與高中專區 (Junior / Senior High View)
+        ------------------------------------------------------------- */
+        .grid-two-col {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .timeline-box {
+            background: #FAF8F7;
+            border-radius: 12px;
+            padding: 30px;
+            border-left: 4px solid var(--primary-red);
+        }
+
+        .timeline-box h4 {
+            font-size: 18px;
+            color: var(--secondary-navy);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        /* -------------------------------------------------------------
+           7. 分頁內容：SESS 一對一教學 (SESS One-on-One View)
+        ------------------------------------------------------------- */
+        .sess-flow-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin: 50px 0;
+        }
+
+        .flow-step {
+            background: white;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .flow-step-num {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-red);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .flow-step h4 {
+            font-size: 18px;
+            color: var(--secondary-navy);
+            margin-bottom: 12px;
+        }
+
+        .flow-step p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* -------------------------------------------------------------
+           8. 分頁內容：家長反饋與榜單 (Feedback & Board View)
+        ------------------------------------------------------------- */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .testi-card {
+            background: white;
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .testi-student-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .testi-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--secondary-navy);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+        }
+
+        .testi-meta h5 {
+            font-size: 16px;
+            color: var(--secondary-navy);
+        }
+
+        .testi-meta p {
+            font-size: 13px;
+            color: var(--primary-red);
+            font-weight: 500;
+        }
+
+        .testi-text {
+            font-size: 15px;
+            color: var(--text-dark);
+            font-style: italic;
+        }
+
+        /* -------------------------------------------------------------
+           9. 分頁內容：關於分校與諮詢 (Branches View)
+        ------------------------------------------------------------- */
+        .branch-card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .branch-detail-box {
+            background: white;
+            border-radius: 16px;
+            border: 1px solid var(--border-light);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .branch-header-banner {
+            background: var(--secondary-navy);
+            color: white;
+            padding: 24px 32px;
+        }
+
+        .branch-header-banner h3 {
+            font-size: 22px;
+            margin-bottom: 6px;
+        }
+
+        .branch-header-banner p {
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+        }
+
+        .branch-body-content {
+            padding: 32px;
+        }
+
+        .info-row {
+            display: flex;
+            margin-bottom: 18px;
+            font-size: 15px;
+        }
+
+        .info-row-label {
+            width: 100px;
+            font-weight: 700;
+            color: var(--secondary-navy);
+        }
+
+        .info-row-value {
+            width: calc(100% - 100px);
+            color: var(--text-dark);
+        }
+
+        /* 預約整合表單 */
+        .appointment-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid var(--border-light);
+            padding: 50px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--secondary-navy);
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            border: 1px solid #D1D5DB;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--primary-red);
+            box-shadow: 0 0 0 4px rgba(184, 29, 36, 0.1);
+        }
+
+        .form-submit-btn {
+            background-color: var(--primary-red);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(184,29,36,0.2);
+            transition: var(--transition);
+        }
+
+        .form-submit-btn:hover {
+            background-color: var(--primary-darkred);
+            transform: translateY(-2px);
+        }
+
+        /* -------------------------------------------------------------
+           10. 常駐聯絡與高級頁尾 (Floating Elements & Footer)
+        ------------------------------------------------------------- */
+        .floating-action-container {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            z-index: 999;
+        }
+
+        .float-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: 700;
+            font-size: 13px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .float-line { background-color: #06C755; }
+        .float-line:hover { transform: scale(1.08); }
+        .float-phone { background-color: var(--primary-red); }
+        .float-phone:hover { transform: scale(1.08); }
+
+        footer {
+            background-color: var(--secondary-navy);
+            color: rgba(255,255,255,0.7);
+            padding: 80px 4% 40px;
+            border-top: 5px solid var(--primary-red);
+        }
+
+        .footer-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h3 {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            max-width: 320px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 16px;
+            margin-bottom: 24px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background-color: var(--primary-red);
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-col ul li a {
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+            padding-left: 4px;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+        }
+
+        /* -------------------------------------------------------------
+           11. 響應式佈局適配 (RWD Options)
+        ------------------------------------------------------------- */
+        @media (max-width: 1024px) {
+            .hero-inner h2 { font-size: 42px; }
+            .stats-bar { grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: -40px; }
+            .stat-item { border-right: none; }
+            .pillars-grid { grid-template-columns: 1fr; }
+            .quick-grid { grid-template-columns: 1fr; }
+            .grid-two-col { grid-template-columns: 1fr; }
+            .sess-flow-container { grid-template-columns: repeat(2, 1fr); }
+            .testimonial-grid { grid-template-columns: 1fr; }
+            .branch-card-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 16px; text-align: center; }
+            nav { flex-direction: column; gap: 16px; width: 100%; }
+            .nav-menu { flex-direction: column; align-items: center; gap: 14px; }
+            .header-cta { width: 100%; text-align: center; }
+            .hero-buttons { flex-direction: column; gap: 12px; }
+            .course-layout-box { padding: 24px; }
+            .appointment-form-container { padding: 24px; }
+            .form-grid { grid-template-columns: 1fr; }
+            .form-group.full-width { grid-column: span 1; }
+            .info-table { display: block; overflow-x: auto; }
+            .sess-flow-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <header>
+            <div class="logo-area">
+                <div class="logo-icon">東</div>
+                <div class="logo-text">
+                    <h1>東德教育集團</h1>
+                    <p>East Education Group</p>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item active" data-target="home"><a href="#home">首頁精選</a></li>
+                    <li class="nav-item" data-target="elementary"><a href="#elementary">國小專區</a></li>
+                    <li class="nav-item" data-target="junior"><a href="#junior">國中會考</a></li>
+                    <li class="nav-item" data-target="senior"><a href="#senior">高中學測</a></li>
+                    <li class="nav-item" data-target="sess"><a href="#sess">SESS一對一</a></li>
+                    <li class="nav-item" data-target="feedback"><a href="#feedback">家長口碑</a></li>
+                    <li class="nav-item" data-target="branches"><a href="#branches">分校諮詢</a></li>
+                </ul>
+                <a href="#branches" class="header-cta" onclick="switchView('branches')">預約7天免費試聽</a>
+            </nav>
+        </header>
+    </div>
+
+    <main id="home" class="page-view active-view">
+        <section class="hero-section">
+            <div class="hero-inner">
+                <p class="hero-tag">TAIPEI NEIHU · 頂級私塾教育首選</p>
+                <h2>客製化的專屬補習服務<br>是面對混亂教改的唯一選擇</h2>
+                <p>拒絕流水線式的集體教學。東德教育集團導入獨家 SESS 精密診斷系統，為每位孩子建立專屬學習地圖，對症下藥解決段考與大考痛點，陪孩子一起看見進步。</p>
+                <div class="hero-buttons">
+                    <a href="#branches" class="btn-primary" onclick="switchView('branches')">預約全科適性診斷</a>
+                    <a href="#sess" class="btn-secondary" onclick="switchView('sess')">了解一對一機制</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-number">94.6%</div>
+                <div class="stat-label">學員單季段考顯著進步率</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">1:1</div>
+                <div class="stat-label">客製化大數據錯題本追蹤</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">A++ / 頂標</div>
+                <div class="stat-label">會考與學測指標型高分搖籃</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">原班頂尖師資與雙導師制度</div>
+            </div>
+        </section>
+
+        <section class="pillars-section">
+            <div class="section-header">
+                <span class="section-badge">東德核心價值</span>
+                <h2>為什麼菁英家長指名東德？</h2>
+                <p>我們不只教知識，更透過嚴密的管理體系與客製化教材，建構孩子的核心素養與終身學習力。</p>
+            </div>
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-icon">01</div>
+                    <h3>精準大數據診斷</h3>
+                    <p>捨棄傳統題海戰術。學生入班即進行全方位學力微觀診斷，揪出知識核心盲點，僅針對弱項進行封閉式精準打擊，讀書效率加倍提升。</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">02</div>
+                    <h3>108課綱素養導向教材</h3>
+                    <p>因應最新考題潮流，研發團隊量身打造「跨領域素養題庫」與「新型態混合題組」，擺脫死記硬背，提早培養圖表整合與邏輯推論實力。</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">03</div>
+                    <h3>獨家雙軌導師照護</h3>
+                    <p>每位學生配置「全科權威講師」進行課業解惑，並搭配「精緻班系導師」進行心理建設、進度控管與家長即時回報，築起最嚴密的防護網。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="quick-nav-section">
+            <div class="section-header">
+                <span class="section-badge">課程導覽</span>
+                <h2>全學齡完整升學對接方案</h2>
+                <p>點選下方卡片或上方導覽列，深入查看各學段極高密度的專業教學計畫表與學制拆解。</p>
+            </div>
+            <div class="quick-grid">
+                <div class="quick-box">
+                    <div class="quick-img" style="background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="quick-content">
+                        <h3>國小全面奠基與私中專班</h3>
+                        <p>平日正英美語精緻引導、資優數學思考特訓，以及針對北部頂尖私中入學考的黃金全科衝刺計畫。</p>
+                        <a href="#elementary" class="quick-link" onclick="switchView('elementary')">進入國小專區 ➜</a>
+                    </div>
+                </div>
+                <div class="quick-box">
+                    <div class="quick-img" style="background-image: url('https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="quick-content">
+                        <h3>國中會考頂尖 A++ 戰略班</h3>
+                        <p>透析國一、國二進度脈絡，國三總複習採取全考點地毯式搜羅，搭配每週模擬考建立實戰心理素質。</p>
+                        <a href="#junior" class="quick-link" onclick="switchView('junior')">進入國中專區 ➜</a>
+                    </div>
+                </div>
+                <div class="quick-box">
+                    <div class="quick-img" style="background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="quick-content">
+                        <h3>高中學測新制高分策略班</h3>
+                        <p>面對學測多元題型與學習歷程檔案的雙重壓力，提供英數物化高效超前部署及核心素養歷程指導。</p>
+                        <a href="#senior" class="quick-link" onclick="switchView('senior')">進入高中專區 ➜</a>
+                    </div>
+                </div>
+                <div class="quick-box">
+                    <div class="quick-img" style="background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="quick-content">
+                        <h3>SESS 頂級客製化一對一</h3>
+                        <p>為時間緊湊、特定學科遭遇嚴重瓶頸或極具資優天賦的學子，量身訂製一對一極致效能教學環境。</p>
+                        <a href="#sess" class="quick-link" onclick="switchView('sess')">進入一對一專區 ➜</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="elementary" class="page-view detail-page-padding">
+        <div class="section-header">
+            <span class="section-badge">ELEMENTARY PROGRAM</span>
+            <h2>國小黃金啟蒙與頂尖私中專班</h2>
+            <p>在混亂的教改洪流中，國小高年級是決定孩子未來數理邏輯與語文廣度的分水嶺。東德採取超前部署策略，穩紮穩打。</p>
+        </div>
+
+        <div class="course-layout-box">
+            <div class="course-title-tag">平日正英美語菁英專班 (1-4年級 / 5-6年級)</div>
+            <p class="course-subtitle">對標歐洲共同語言參考標準 (CEFR)，全面擺脫傳統台式死背英文。融合跨學科素養閱讀 (CLIL)，讓英文成為探索世界的工具而非單純學科。</p>
+            <table class="info-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">班別項目</th>
+                        <th style="width: 25%;">核心教學主軸</th>
+                        <th style="width: 30%;">授課特色與成效指標</th>
+                        <th style="width: 20%;">週堂數與時數</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="highlight-td">低中高年級基礎班 (1-4年級)</td>
+                        <td>自然拼讀、全英生活情境對話、高頻單字圖像記憶</td>
+                        <td>建立極佳英文直覺語感，結業具備國中初階字彙實力</td>
+                        <td>每週 2 堂 / 每堂 2.5 小時</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight-td">高年級進階素養班 (5-6年級)</td>
+                        <td>跨學科長篇閱讀、基礎英檢文法架構、主題式短文寫作</td>
+                        <td>直通全民英檢 (GEPT) 初級與劍橋英檢標準，無縫對接國中雙語班</td>
+                        <td>每週 2 堂 / 每堂 3 小時</td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul class="feature-bullet-list">
+                <li>全程使用東德嚴選原版英美核心教材，結合跨學科知識（科學、地理、歷史）進行深度閱讀。</li>
+                <li>每週安排雲端線上聽力口說一對一微調測驗，由專屬導師親自批改點評。</li>
+            </ul>
+        </div>
+
+        <div class="course-layout-box">
+            <div class="course-title-tag">資優數學思考特訓班 (奠基與拔尖)</div>
+            <p class="course-subtitle">跳脫公式框架，著重於「問題解決」與「空間圖形幾何推理」。透過七大數理核心主題，啟發孩子自發性的邏輯辯證實力。</p>
+            <table class="info-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">培訓核心主題</th>
+                        <th style="width: 50%;">教學細節與邏輯構建</th>
+                        <th style="width: 25%;">目標對接與發展</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="highlight-td">數論與幾何思維</td>
+                        <td>質數合數規律探討、平面圖形剪拼與立體空間旋轉透視感建立、魔方與拓撲邏輯引導。</td>
+                        <td>徹底破除高年級數學恐懼症。</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight-td">應用題專題解析</td>
+                        <td>精密拆解「行程問題、工程問題、濃度問題、年齡問題」等四大魔王題型，建立直觀建模能力。</td>
+                        <td>培養快速將文字轉化為算式。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="course-layout-box">
+            <div class="course-title-tag">頂尖私中全科精密衝刺專班 (目標：薇閣、延平、東山、再興等)</div>
+            <p class="course-subtitle">針對大台北地區頂尖私立中學入學潛能測驗量身打造。極高密度的魔鬼全科複習，歷年錄取率傲視內湖，協助孩子高分搶佔明星私中正取名額。</p>
+            <div class="grid-two-col">
+                <div class="timeline-box">
+                    <h4>第一階段：核心考點地毯式覆蓋 (5年級暑假 - 6年級上學期)</h4>
+                    <p style="font-size: 14px; color: var(--text-muted);">提早將國中七年級之國文文言文、數學代數方程式、幾何證明的核心觀念揉合進教材。進行全方位的降維打擊，讓孩子面對私中超綱題型時仍能游刃有餘。</p>
+                </div>
+                <div class="timeline-box">
+                    <h4>第二階段：全真模擬與心理限時特訓 (6年級下學期 - 衝刺考前)</h4>
+                    <p style="font-size: 14px; color: var(--text-muted);">精選過去20年各大明星私中全真考古題。進行長達24週的限時模擬對抗賽。獨家傳授「防粗心檢查策略」與「高分搶分答題順序法」，將失誤率降至近乎零。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="junior" class="page-view detail-page-padding">
+        <div class="section-header">
+            <span class="section-badge">JUNIOR HIGH SUPERIOR</span>
+            <h2>國中會考頂尖 A++ 精密戰略班</h2>
+            <p>面對國中會考 (CAPA) 三等級四標示的殘酷考驗，一題之差即決定是否與建中、北一女、師大附中擦身而過。東德以全面A++為終極考核指標。</p>
+        </div>
+
+        <div class="course-layout-box">
+            <div class="course-title-tag">國一至國三階梯式全科精準對接表</div>
+            <table class="info-table">
+                <thead>
+                    <tr>
+                        <th style="width: 15%;">年級階段</th>
+                        <th style="width: 25%;">國文與社會素養</th>
+                        <th style="width: 25%;">數學與自然科學</th>
+                        <th style="width: 35%;">會考實戰進度與防線</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="highlight-td">國一 (七年級)</td>
+                        <td>文言文閱讀文翻白特訓、白話文核心主旨抓取、歷史地理跨單元圖表整合。</td>
+                        <td>正負數與一元一次方程建模、生物實驗情境探討、數線空間抽象概念具現化。</td>
+                        <td>奠定扎實的校內段考滿分防線，確保班排、校排穩居頂尖梯隊。</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight-td">國二 (八年級)</td>
+                        <td>古典詩詞賞析、修辭美學、台灣與中國歷史演變關聯、地理氣候帶立體透析。</td>
+                        <td>乘法公式與二次方根、理化重難點(濃度、酸鹼中和、力學與運動)全專題突破。</td>
+                        <td>此階段為成績兩極化危險期，東德透過嚴格理化與數學週考，絕不放過任何錯題。</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight-td">國三 (九年級)</td>
+                        <td>歷屆會考核心核心字彙、A級作文立意取材與結構佈局特訓、地科與全社會終極跨科統整。</td>
+                        <td>圓形幾何證明與相似形極限挑戰、理化電磁學與功和能、歷屆複習全覆蓋。</td>
+                        <td>展開三輪全面大總複習、15次全真聯合模擬會考，打造刀槍不入的實戰作戰心理。</td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul class="feature-bullet-list">
+                <li><strong>獨家錯題本大數據追蹤：</strong> 學生每次週考、段考的錯題，皆由系統歸納掃描，於考前生成完全個人化的「防粗心弱點補強題本」。</li>
+                <li><strong>黃金雙師制度：</strong> 正課講師講述核心觀念，解惑助教全程留宿至22:00，確保孩子絕不帶著任何問號回家。</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="senior" class="page-view detail-page-padding">
+        <div class="section-header">
+            <span class="section-badge">SENIOR HIGH ELITE</span>
+            <h2>高中新制學測與分科測驗頂標班</h2>
+            <p>108課綱新制下，高中生面臨的是「學測素養題型、混合題型、手寫獨立計分、學習歷程檔案」的多重夾擊。東德全方位助你考取醫學系、台清交成政等頂尖志願。</p>
+        </div>
+
+        <div class="course-layout-box">
+            <div class="course-title-tag">高中核心優勢課程架構</div>
+            <div class="grid-two-col">
+                <div>
+                    <h3 style="font-size: 20px; color: var(--secondary-navy); margin-bottom: 16px; font-weight: 700;">● 高中數學與自然科學精準專題</h3>
+                    <p style="font-size: 15px; color: var(--text-muted); margin-bottom: 16px;">
+                        高中數學抽象度極高（從空間向量、三角函數到微積分預備知識）。東德講師團隊採用「幾何代數雙向解題法」，拒絕死背公式，讓學生掌握題目本質。物化方面，深入剖析大考最愛之「實驗設計題」與「生活情境題」，輕鬆橫掃手寫混合題組。
+                    </p>
+                </div>
+                <div>
+                    <h3 style="font-size: 20px; color: var(--secondary-navy); margin-bottom: 16px; font-weight: 700;">● 高中英文與國文寫作高分沙龍</h3>
+                    <p style="font-size: 15px; color: var(--text-muted); margin-bottom: 16px;">
+                        學測英文作文字數與論述深度要求極高。東德建立專門英文寫作改作機制，由名師親筆修正文法、用字與邏輯架構，將作文穩穩推向15分以上之大考頂標階梯。國文方面則針對「知性」與「感性」兩大國寫題型進行結構化範文剖析。
+                    </p>
+                </div>
+            </div>
+
+            <table class="info-table">
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">學期進度規劃</th>
+                        <th style="width: 40%;">進度與學科重點部署</th>
+                        <th style="width: 40%;">學習歷程檔案 (Portfolio) 專業顧問對接</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="highlight-td">高一 (10年級)</td>
+                        <td>銜接國高中巨大斷層，穩紮穩打完成必修學分，著重數英主科深度建立。</td>
+                        <td>引導學生進行科展、自主學習計畫選題，建立清晰的研究方法論。</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight-td">高二 (11年級)</td>
+                        <td>進入數A/數B分流、物化地生進階選修或文史哲深度思辨，段考維持校內繁星前段排名。</td>
+                        <td>結合核心學科產出高品質「課程學習成果」，經顧問一對一指點修正，確保上傳成功率。</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight-td">高三 (12年級)</td>
+                        <td>全面啟動學測一輪與二輪複習，全力應戰一學測、二分科測驗，進行高強度倒數模擬衝刺。</td>
+                        <td>提供多元表現統整心得、備審資料金牌修潤、各大學熱門科系實戰模擬面試。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="sess" class="page-view detail-page-padding">
+        <div class="section-header">
+            <span class="section-badge">SESS INDIVIDUAL CUSTOMIZED</span>
+            <h2>SESS 頂級客製化一對一專業教學</h2>
+            <p>每位孩子都是獨一無二的個體。當集體上課無法精準解決孩子的個別落後或超前需求時，東德 SESS (Systematic Educational Support System) 一對一系統是您的終極解決方案。</p>
+        </div>
+
+        <div class="course-layout-box">
+            <div class="course-title-tag">SESS 四大精密教學循環流程</div>
+            <div class="sess-flow-container">
+                <div class="flow-step">
+                    <div class="flow-step-num">01</div>
+                    <h4>精密學力診斷</h4>
+                    <p>入班進行30維度的認知結構盲點測試，分析出大腦在邏輯、空間、語意或記憶上的精確弱項。</p>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">02</div>
+                    <h4>專屬教案編排</h4>
+                    <p>不採用公版講義，完全根據診斷報告，為該學員獨立印製、排定當週進度的「個人化專屬教材」。</p>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">03</div>
+                    <h4>頂尖師資精準對接</h4>
+                    <p>嚴選經大數據適性匹配的王牌導師，進行全神貫注的一對一精準解惑與思維引導，拒絕無效陪伴。</p>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">04</div>
+                    <h4>即時動態追蹤報告</h4>
+                    <p>每堂課結業後，導師需填寫詳細的「課堂行為與知識吸收度回報單」，每週由教務主任與家長電話深度通報。</p>
+                </div>
+            </div>
+
+            <table class="info-table">
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">最適合加入 SESS 一對一的對象</th>
+                        <th style="width: 70%;">東德一對一如何幫助孩子實現奇蹟逆襲？</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="highlight-td">某特定學科嚴重落後、產生嚴重排斥感者</td>
+                        <td>我們將進度撥回盲點產生的最初起點（可能為國小五年的某個觀念缺失），重新打通任督二脈，協助孩子在短短一個月內重拾信心，段考成績迎來暴風式成長。</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight-td">校內校排頂尖，期望超前進度、挑戰奧林匹亞或頂尖學力競賽者</td>
+                        <td>提供資優拔尖計畫。由碩博士級菁英講師帶領超前學習。跳過校內繁瑣重複的基礎練習，直接上攻極具挑戰性的高難度競賽題組。</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight-td">時間管理緊湊，需高彈性排課之學生</td>
+                        <td>完全配合學生的黃金時間作息進行排課，專屬獨立 K 書座位免預約全天候開放，提供最高效的沉浸式讀書環境。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="feedback" class="page-view detail-page-padding">
+        <div class="section-header">
+            <span class="section-badge">PARENTS TRUST & HONOR</span>
+            <h2>家長反饋與學員進步榮譽榜</h2>
+            <p>金盃銀盃不如家長的口碑。東德教育集團不譁眾取寵，我們用最真實的成績單、最誠懇的對話記錄，展現最紮實的教學奇蹟。</p>
+        </div>
+
+        <div class="testimonial-grid">
+            <div class="testi-card">
+                <div class="testi-student-info">
+                    <div class="testi-avatar">陳</div>
+                    <div class="testi-meta">
+                        <h5>陳媽媽 (麗山國中九年級 游○杰之母親)</h5>
+                        <p>成果：會考數學從 B+ 狂飆逆襲至 A++，順利錄取前三志願</p>
+                    </div>
+                </div>
+                <p class="testi-text">
+                    「小杰在國二時理化和數學一塌糊塗，校排掉到兩百名外。在朋友推薦下抱著試試看的心態送來東德一對一。東德的SESS系統真的很神，一查就知道他其實是國小分數運算的基礎不穩，導致國中代數全部打結。老師沒有責備他，很有耐心地陪他補坑。到了國三總複習班，班導師每週盯緊他的錯題，天天回報進度到深夜。看到會考成績單數學A++的那一刻，我們全家都哭了！謝謝東德！」
+                </p>
+            </div>
+
+            <div class="testi-card">
+                <div class="testi-student-info">
+                    <div class="testi-avatar">林</div>
+                    <div class="testi-meta">
+                        <h5>林爸爸 (內湖高中十二年級 林○涵之父親)</h5>
+                        <p>成果：學測英文勇奪15滿級分、順利繁星推薦錄取國立陽明交通大學</p>
+                    </div>
+                </div>
+                <p class="testi-text">
+                    「女兒的英文閱讀速度一直很慢，在其他大補習班上課總是淪為坐在後排的背景板。來到東德高中菁英班後，這裡的精緻小班制與針對108課綱新制混合題型的訓練非常紮實。尤其是寫作沙龍，老師每週都親自幫她改兩篇作文，從用字、結構、修辭全面升級。女兒的自主學習歷程檔案也是在東德顧問的指點下，做得像大學專題一樣精美。東德不只是補習班，更是孩子升學路上最專業的領航員！」
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="branches" class="page-view detail-page-padding">
+        <div class="section-header">
+            <span class="section-badge">CAMPUS LOCATIONS & TRIAL</span>
+            <h2>實體分校資訊與7天免費試聽預約</h2>
+            <p>東德在內湖區設有兩大頂級旗艦校區，均配備全自動智能進出安防系統、人體工學健康課桌椅、以及全區高規空氣淨化系統，給孩子最安心舒適的奮鬥環境。</p>
+        </div>
+
+        <div class="branch-card-grid">
+            <div class="branch-detail-box">
+                <div class="branch-header-banner">
+                    <h3>東湖校區 (東湖旗艦館)</h3>
+                    <p>東湖與康寧學子的最頂尖升學基地</p>
+                </div>
+                <div class="branch-body-content">
+                    <div class="info-row">
+                        <div class="info-row-label">諮詢專線：</div>
+                        <div class="info-row-value"><a href="tel:0226306133" style="color: var(--primary-red); font-weight: 700;">02-2630-6133</a></div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-row-label">校區地址：</div>
+                        <div class="info-row-value">台北市內湖區康寧路三段174號 (近捷運東湖站，步行僅需3分鐘)</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-row-label">服務時間：</div>
+                        <div class="info-row-value">週一至週五 13:00 - 22:00 / 週六 09:00 - 18:00</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-row-label">對接學區：</div>
+                        <div class="info-row-value">明湖國中小、東湖國中小、南湖高中、麗湖國小、麗山國高中</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="branch-detail-box">
+                <div class="branch-header-banner" style="background-color: var(--primary-red);">
+                    <h3>麗山校區 (麗山頂尖館)</h3>
+                    <p>專注頂尖拔尖與高難度私中、特招策略基地</p>
+                </div>
+                <div class="branch-body-content">
+                    <div class="info-row">
+                        <div class="info-row-label">諮詢專線：</div>
+                        <div class="info-row-value"><a href="tel:0226279528" style="color: var(--secondary-navy); font-weight: 700;">02-2627-9528</a></div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-row-label">校區地址：</div>
+                        <div class="info-row-value">臺北市內湖區內湖路一段629巷45號 (鄰近麗山高中、港墘捷運站)</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-row-label">服務時間：</div>
+                        <div class="info-row-value">週一至週五 13:00 - 22:00 / 週六 09:00 - 18:00</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-row-label">對接學區：</div>
+                        <div class="info-row-value">麗山國中小、內湖國中小、西湖國中小、達人女中、方濟中學</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="appointment-form-container">
+            <h3 style="text-align: center; font-size: 26px; color: var(--secondary-navy); margin-bottom: 8px; font-weight: 700;">預約 7 天免費適性試聽與學力診斷</h3>
+            <p style="text-align: center; color: var(--text-muted); font-size: 14px; margin-bottom: 36px;">請填寫下方精密諮詢表單，教務主任將於24小時內致電與您確認入班診斷時間。</p>
+            
+            <form onsubmit="alert('感謝您的預約！東德專業教務團隊將於24小時內主動與您聯繫，為孩子安排專屬的學力診斷。'); return false;">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="pname">家長姓名 *</label>
+                        <input type="text" id="pname" required placeholder="例如：陳媽媽">
+                    </div>
+                    <div class="form-group">
+                        <label for="ptel">聯絡電話 *</label>
+                        <input type="tel" id="ptel" required placeholder="例如：0912345678">
+                    </div>
+                    <div class="form-group">
+                        <label for="sname">學生姓名 *</label>
+                        <input type="text" id="sname" required placeholder="例如：游小杰">
+                    </div>
+                    <div class="form-group">
+                        <label for="sgrade">就讀年級 *</label>
+                        <select id="sgrade" required>
+                            <option value="">請選擇學段年級</option>
+                            <option value="e14">國小 1-4 年級專班</option>
+                            <option value="e56">國小 5-6 年級升學班</option>
+                            <option value="eprivate">私中全科實力衝刺班</option>
+                            <option value="j1">國中 七年級 (新進度)</option>
+                            <option value="j2">國中 八年級 (進度與理化)</option>
+                            <option value="j3">國中 九年級 (會考總複習)</option>
+                            <option value="s12">高中 高一/高二 全科適性班</option>
+                            <option value="s3">高中 高三 學測/分科大考班</option>
+                            <option value="sess">SESS 一對一極致客製化</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="campus">欲諮詢校區 *</label>
+                        <select id="campus" required>
+                            <option value="">請選擇就近校區</option>
+                            <option value="east-lake">東湖校區 (康寧路三段)</option>
+                            <option value="lishan">麗山校區 (內湖路一段)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="know-from">如何得知東德？</label>
+                        <select id="know-from">
+                            <option value="web">網路搜尋推薦</option>
+                            <option value="friend">親友/家長口碑介紹</option>
+                            <option value="flyer">分校DM/實體招牌</option>
+                            <option value="other">其他</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="note">孩子的學習痛點或特殊需求描述（選填）</label>
+                        <textarea id="note" rows="4" placeholder="例如：孩子數學段考常常寫不完、粗心大意，希望能加強幾何證明題..."></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="form-submit-btn">送出預約申請 ➜</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="floating-action-container">
+        <a href="https://line.me" target="_blank" class="float-btn float-line">LINE<br>諮詢</a>
+        <a href="tel:0226306133" class="float-btn float-phone">撥打<br>電話</a>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>東德教育集團</h3>
+                <p>客製化的專屬補習服務是面對混亂教改的唯一選擇。深耕內湖，用專業與愛心構築孩子最堅實的升學防線。</p>
+                <p style="font-size: 12px; color: rgba(255,255,255,0.4);">版權所有 © 2026 東德教育集團 East Education Group.</p>
+            </div>
+            <div class="footer-col">
+                <h4>核心學段課程</h4>
+                <ul>
+                    <li><a href="#elementary" onclick="switchView('elementary')">國小資優奠基班</a></li>
+                    <li><a href="#elementary" onclick="switchView('elementary')">明星私中衝刺專班</a></li>
+                    <li><a href="#junior" onclick="switchView('junior')">國中會考 A++ 戰略班</a></li>
+                    <li><a href="#senior" onclick="switchView('senior')">高中學測頂標突破班</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>獨家教學系統</h4>
+                <ul>
+                    <li><a href="#sess" onclick="switchView('sess')">SESS學力精準診斷</a></li>
+                    <li><a href="#sess" onclick="switchView('sess')">一對一個別指導</a></li>
+                    <li><a href="#junior" onclick="switchView('junior')">大數據防粗心錯題本</a></li>
+                    <li><a href="#feedback" onclick="switchView('feedback')">親師即時回報系統</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>實體旗艦校區</h4>
+                <ul>
+                    <li><a href="#branches" onclick="switchView('branches')">東湖校區：02-2630-6133</a></li>
+                    <li><a href="#branches" onclick="switchView('branches')">麗山校區：02-2627-9528</a></li>
+                    <li><a href="#branches" onclick="switchView('branches')">官方 LINE 線上諮詢團隊</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>
+                <a href="#" style="margin-right: 20px;">隱私權政策</a>
+                <a href="#">定型化服務契約條款</a>
+            </div>
+            <div>Powered by 東德教育集團資訊處 & 專業網頁設計團隊</div>
+        </div>
+    </footer>
+
+    <script>
+        function switchView(targetViewId) {
+            // 1. 隱藏所有頁面視圖
+            const views = document.querySelectorAll('.page-view');
+            views.forEach(view => {
+                view.classList.remove('active-view');
+            });
+
+            // 2. 顯示目標視圖
+            const targetView = document.getElementById(targetViewId);
+            if (targetView) {
+                targetView.classList.add('active-view');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // 3. 更新導覽列 active 狀態
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('data-target') === targetViewId) {
+                    item.classList.add('active');
+                }
+            });
+        }
+
+        // 接管所有點擊事件與 Hash 錨點
+        document.addEventListener('DOMContentLoaded', () => {
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = item.getAttribute('data-target');
+                    switchView(target);
+                    // 同步更新瀏覽器網址 Hash，避免使用者混淆
+                    history.pushState(null, null, '#' + target);
+                });
+            });
+
+            // 支援網址直接帶入 Hash 的直接跳轉機制 (如 index.html#junior)
+            const currentHash = window.location.hash.replace('#', '');
+            if (currentHash && document.getElementById(currentHash)) {
+                switchView(currentHash);
+            }
+        });
+
+        // 監聽瀏覽器上一頁/下一頁
+        window.addEventListener('popstate', () => {
+            const currentHash = window.location.hash.replace('#', '') || 'home';
+            if (document.getElementById(currentHash)) {
+                switchView(currentHash);
+            }
+        });
+    </script>
+</body>
+</html>
+"""
+
+with open("index.html", "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+print("index.html successfully generated.")
