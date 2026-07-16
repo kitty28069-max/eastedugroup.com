@@ -6,7 +6,6 @@
     <title>東德教育集團 | 頂級客製化升學與專業一對一課輔機構</title>
     <meta name="description" content="東德教育集團深耕內湖。引領108課綱素養教育，提供國小、國中、高中全科精密指導、私中頂尖衝刺班、及獨家SESS一對一客製化課程。七天免費試聽預約中。">
     
-    <!-- 預連線至 Google 字體伺服器 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Playfair+Display:ital,wght=0,600;1,600&display=swap" rel="stylesheet">
@@ -762,7 +761,7 @@
             color: var(--text-dark);
         }
 
-        /* 預約整合表單 */
+        /* 意見回饋表單容器 */
         .appointment-form-container {
             max-width: 800px;
             margin: 0 auto;
@@ -1026,7 +1025,6 @@
 </head>
 <body>
 
-    <!-- 頂部導覽列 -->
     <div class="header-container">
         <header>
             <div class="logo-area">
@@ -1036,7 +1034,6 @@
                     <p>East Education Group</p>
                 </div>
             </div>
-            <!-- 漢堡按鈕 (Mobile/iPad 專用) -->
             <button class="menu-toggle" aria-label="選單開關">
                 <span></span>
                 <span></span>
@@ -1052,14 +1049,11 @@
                     <li class="nav-item" data-target="feedback"><a href="#feedback">家長口碑</a></li>
                     <li class="nav-item" data-target="branches"><a href="#branches">分校諮詢</a></li>
                 </ul>
-                <a href="#branches" class="header-cta" onclick="switchView('branches')">預約7天免費試聽</a>
+                <a href="https://docs.google.com/forms/d/1GCgxCbQr7yKA2WN-SJNl5UpskzaWBJqP1b-l2eOwheo/viewform" target="_blank" class="header-cta">預約7天免費試聽</a>
             </nav>
         </header>
     </div>
 
-    <!-- ＝=========================================
-         分頁一：首頁精選 (Home View)
-         ========================================== -->
     <main id="home" class="page-view active-view">
         <section class="hero-section">
             <div class="hero-inner">
@@ -1067,13 +1061,12 @@
                 <h2>客製化的專屬補習服務<br>是面對混亂教改的唯一選擇</h2>
                 <p>拒絕流水線式的集體教學。東德教育集團導入獨家 SESS 精密診斷系統，為每位孩子建立專屬學習地圖，對症下藥解決段考與大考痛點，陪孩子一起看見進步。</p>
                 <div class="hero-buttons">
-                    <a href="#branches" class="btn-primary" onclick="switchView('branches')">預約全科適性診斷</a>
+                    <a href="https://docs.google.com/forms/d/1GCgxCbQr7yKA2WN-SJNl5UpskzaWBJqP1b-l2eOwheo/viewform" target="_blank" class="btn-primary">免費試讀七天 / 預約診斷</a>
                     <a href="#sess" class="btn-secondary" onclick="switchView('sess')">了解一對一機制</a>
                 </div>
             </div>
         </section>
 
-        <!-- 數據成就欄 -->
         <section class="stats-bar">
             <div class="stat-item">
                 <div class="stat-number">94.6%</div>
@@ -1093,7 +1086,6 @@
             </div>
         </section>
 
-        <!-- 三大核心教育柱石 -->
         <section class="pillars-section">
             <div class="section-header">
                 <span class="section-badge">東德核心價值</span>
@@ -1119,7 +1111,6 @@
             </div>
         </section>
 
-        <!-- 快速分頁引導區塊 -->
         <section class="quick-nav-section">
             <div class="section-header">
                 <span class="section-badge">課程導覽</span>
@@ -1163,9 +1154,6 @@
         </section>
     </main>
 
-    <!-- ＝=========================================
-         分頁二：國小專區 (Elementary View)
-         ========================================== -->
     <div id="elementary" class="page-view detail-page-padding">
         <div class="section-header">
             <span class="section-badge">ELEMENTARY PROGRAM</span>
@@ -1173,7 +1161,6 @@
             <p>在混亂的教改洪流中，國小高年級是決定孩子未來數理邏輯與語文廣度的分水嶺。東德採取超前部署策略，穩紮穩打。</p>
         </div>
 
-        <!-- 區塊1: 平日正英美語專班 -->
         <div class="course-layout-box">
             <div class="course-title-tag">平日正英美語菁英專班 (1-4年級 / 5-6年級)</div>
             <p class="course-subtitle">對標歐洲共同語言參考標準 (CEFR)，全面擺脫傳統台式死背英文。融合跨學科素養閱讀 (CLIL)，讓英文成為探索世界的工具而非單純學科。</p>
@@ -1207,7 +1194,6 @@
             </ul>
         </div>
 
-        <!-- 區塊2: 資優數學思考特訓班 -->
         <div class="course-layout-box">
             <div class="course-title-tag">資優數學思考特訓班 (奠基與拔尖)</div>
             <p class="course-subtitle">跳脫公式框架，著重於「問題解決」與「空間圖形幾何推理」。透過七大數理核心主題，啟發孩子自發性的邏輯辯證實力。</p>
@@ -1234,7 +1220,6 @@
             </table>
         </div>
 
-        <!-- 區塊3: 私中考點全科衝刺專班 -->
         <div class="course-layout-box">
             <div class="course-title-tag">頂尖私中全科精密衝刺專班 (目標：薇閣、延平、東山、再興等)</div>
             <p class="course-subtitle">針對大台北地區頂尖私立中學入學潛能測驗量身打造。極高密度的魔鬼全科複習，歷年錄取率傲視內湖，協助孩子高分搶佔明星私中正取名額。</p>
@@ -1251,9 +1236,6 @@
         </div>
     </div>
 
-    <!-- ＝=========================================
-         分頁三：國中專區 (Junior High View)
-         ========================================== -->
     <div id="junior" class="page-view detail-page-padding">
         <div class="section-header">
             <span class="section-badge">JUNIOR HIGH SUPERIOR</span>
@@ -1300,9 +1282,6 @@
         </div>
     </div>
 
-    <!-- ＝=========================================
-         分頁四：高中專區 (Senior High View)
-         ========================================== -->
     <div id="senior" class="page-view detail-page-padding">
         <div class="section-header">
             <span class="section-badge">SENIOR HIGH ELITE</span>
@@ -1343,7 +1322,7 @@
                     </tr>
                     <tr>
                         <td class="highlight-td">高二 (11年級)</td>
-                        <td>進入數A/數B分流、物化地生進階選修或文史哲深度思辨，段考維持校內繁星前段排名。</td>
+                        <td>進入數A/數B分流、物化地生進階選修 or 文史哲深度思辨，段考維持校內繁星前段排名。</td>
                         <td>結合核心學科產出高品質「課程學習成果」，經顧問一對一指點修正，確保上傳成功率。</td>
                     </tr>
                     <tr>
@@ -1356,9 +1335,6 @@
         </div>
     </div>
 
-    <!-- ＝=========================================
-         分頁五：SESS 一對一專業教學 (SESS One-on-One View)
-         ========================================== -->
     <div id="sess" class="page-view detail-page-padding">
         <div class="section-header">
             <span class="section-badge">SESS INDIVIDUAL CUSTOMIZED</span>
@@ -1416,9 +1392,6 @@
         </div>
     </div>
 
-    <!-- ＝=========================================
-         分頁六：家長口碑與進步榜單 (Feedback View)
-         ========================================== -->
     <div id="feedback" class="page-view detail-page-padding">
         <div class="section-header">
             <span class="section-badge">PARENTS TRUST & HONOR</span>
@@ -1455,17 +1428,13 @@
         </div>
     </div>
 
-    <!-- ＝=========================================
-         分頁七：關於分校與諮詢 (Branches View)
-         ========================================== -->
     <div id="branches" class="page-view detail-page-padding">
         <div class="section-header">
-            <span class="section-badge">CAMPUS LOCATIONS & TRIAL</span>
-            <h2>實體分校資訊與7天免費試聽預約</h2>
-            <p>東德在內湖區設有兩大頂級旗艦校區，均配備全自動智能進出安防系統、人體工學健康課桌椅、以及全區高規空氣淨化系統，給孩子最安心舒適的奮鬥環境。</p>
+            <span class="section-badge">CAMPUS LOCATIONS & FEEDBACK</span>
+            <h2>實體分校資訊與家長意見回饋</h2>
+            <p>東德在內湖區設有兩大頂級旗艦校區。無論您有任何關於課程、環境、師資的意見，歡迎透過下方表單直接向管理團隊反映。</p>
         </div>
 
-        <!-- 分校卡片佈局 -->
         <div class="branch-card-grid">
             <div class="branch-detail-box">
                 <div class="branch-header-banner">
@@ -1518,74 +1487,50 @@
             </div>
         </div>
 
-        <!-- 諮詢表單區 -->
         <div class="appointment-form-container">
-            <h3 style="text-align: center; font-size: 26px; color: var(--secondary-navy); margin-bottom: 8px; font-weight: 700;">預約 7 天免費適性試聽與學力診斷</h3>
-            <p style="text-align: center; color: var(--text-muted); font-size: 14px; margin-bottom: 36px;">請填寫下方精密諮詢表單，教務主任將於24小時內致電與您確認入班診斷時間。</p>
+            <h3 style="text-align: center; font-size: 26px; color: var(--secondary-navy); margin-bottom: 8px; font-weight: 700;">家長與學生意見回饋信箱</h3>
+            <p style="text-align: center; color: var(--text-muted); font-size: 14px; margin-bottom: 36px;">您的寶貴意見是我們進步的動力。填寫後資料將會直接遞交給管理處，我們將竭誠為您改善。</p>
             
-            <form onsubmit="alert('感謝您的預約！東德專業教務團隊將於24小時內主動與您聯繫，為孩子安排專屬的學力診斷。'); return false;">
+            <form id="feedback-form">
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
                 <div class="form-grid">
                     <div class="form-group">
-                        <label for="pname">家長姓名 *</label>
-                        <input type="text" id="pname" required placeholder="例如：陳媽媽">
+                        <label for="fname">您的姓名 *</label>
+                        <input type="text" id="fname" name="家長姓名" required placeholder="例如：陳媽媽、游同學">
                     </div>
                     <div class="form-group">
-                        <label for="ptel">聯絡電話 *</label>
-                        <input type="tel" id="ptel" required placeholder="例如：0912345678">
+                        <label for="ftel">聯絡電話 / 信箱 *</label>
+                        <input type="text" id="ftel" name="聯絡資料" required placeholder="例如：0912-345678 / email@test.com">
                     </div>
-                    <div class="form-group">
-                        <label for="sname">學生姓名 *</label>
-                        <input type="text" id="sname" required placeholder="例如：游小杰">
-                    </div>
-                    <div class="form-group">
-                        <label for="sgrade">就讀年級 *</label>
-                        <select id="sgrade" required>
-                            <option value="">請選擇學段年級</option>
-                            <option value="e14">國小 1-4 年級專班</option>
-                            <option value="e56">國小 5-6 年級升學班</option>
-                            <option value="eprivate">私中全科實力衝刺班</option>
-                            <option value="j1">國中 七年級 (新進度)</option>
-                            <option value="j2">國中 八年級 (進度與理化)</option>
-                            <option value="j3">國中 九年級 (會考總複習)</option>
-                            <option value="s12">高中 高一/高二 全科適性班</option>
-                            <option value="s3">高中 高三 學測/分科大考班</option>
-                            <option value="sess">SESS 一對一極致客製化</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="campus">欲諮詢校區 *</label>
-                        <select id="campus" required>
-                            <option value="">請選擇就近校區</option>
-                            <option value="east-lake">東湖校區 (康寧路三段)</option>
-                            <option value="lishan">麗山校區 (內湖路一段)</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="know-from">如何得知東德？</label>
-                        <select id="know-from">
-                            <option value="web">網路搜尋推薦</option>
-                            <option value="friend">親友/家長口碑介紹</option>
-                            <option value="flyer">分校DM/實體招牌</option>
-                            <option value="other">其他</option>
+                    <div class="form-group full-width">
+                        <label for="ftype">意見回饋類型 *</label>
+                        <select id="ftype" name="回饋類型" required>
+                            <option value="">請選擇回饋大類</option>
+                            <option value="課程諮詢與建議">課程教學諮詢與進度建議</option>
+                            <option value="師資與班導回饋">對教師、導師授課與輔導回饋</option>
+                            <option value="校區環境設備">校區硬體環境、乾淨度與安全配備</option>
+                            <option value="行政管理服務">櫃檯行政配合與親師通報品質</option>
+                            <option value="其他意見與勉勵">其他寶貴意見或對我們的勉勵</option>
                         </select>
                     </div>
                     <div class="form-group full-width">
-                        <label for="note">孩子的學習痛點或特殊需求描述（選填）</label>
-                        <textarea id="note" rows="4" placeholder="例如：孩子數學段考常常寫不完、粗心大意，希望能加強幾何證明題..."></textarea>
+                        <label for="fnote">具體回饋內容 *</label>
+                        <textarea id="fnote" name="具體意見回饋" rows="5" required placeholder="請詳細描述您的建議、想法或遇到的問題，以利我們快速為您優化改進。"></textarea>
                     </div>
                 </div>
-                <button type="submit" class="form-submit-btn">送出預約申請 ➜</button>
+                <button type="submit" class="form-submit-btn" id="submit-btn">送出意見回饋 ➜</button>
             </form>
         </div>
     </div>
 
-    <!-- 常駐聯絡按鈕 -->
     <div class="floating-action-container">
         <a href="https://line.me" target="_blank" class="float-btn float-line">LINE<br>諮詢</a>
         <a href="tel:0226306133" class="float-btn float-phone">撥打<br>電話</a>
     </div>
 
-    <!-- 高級頁尾 -->
     <footer>
         <div class="footer-grid">
             <div class="footer-brand">
@@ -1629,7 +1574,6 @@
         </div>
     </footer>
 
-    <!-- 核心單頁應用切換 JavaScript 邏輯 -->
     <script>
         function switchView(targetViewId) {
             // 1. 隱藏所有頁面視圖
@@ -1689,6 +1633,59 @@
             const currentHash = window.location.hash.replace('#', '');
             if (currentHash && document.getElementById(currentHash)) {
                 switchView(currentHash);
+            }
+
+            // -------------------------------------------------------------
+            // WEB3FORMS 非同步發信機制邏輯
+            // -------------------------------------------------------------
+            const feedbackForm = document.getElementById('feedback-form');
+            const submitBtn = document.getElementById('submit-btn');
+
+            if (feedbackForm) {
+                feedbackForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // 檢查金鑰是否已被替換
+                    const accessKeyInput = feedbackForm.querySelector('input[name="access_key"]');
+                    if (accessKeyInput.value === "YOUR_ACCESS_KEY_HERE" || accessKeyInput.value.trim() === "") {
+                        alert("🚨 系統提示：尚未設定發信金鑰！請在 HTML 中搜尋 'YOUR_ACCESS_KEY_HERE' 並更換為您的 Web3Forms Access Key，這樣您才能在 Email 裡收到回饋信喔！");
+                        return;
+                    }
+
+                    submitBtn.innerText = "正在傳送意見...";
+                    submitBtn.disabled = true;
+
+                    const formData = new FormData(feedbackForm);
+                    const object = Object.fromEntries(formData);
+                    const json = JSON.stringify(object);
+
+                    fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: json
+                    })
+                    .then(async (response) => {
+                        let resJson = await response.json();
+                        if (response.status === 200) {
+                            alert("🎉 感謝您的寶貴回饋！我們已成功接收您的意見，管理處將會儘速過目處理。");
+                            feedbackForm.reset();
+                        } else {
+                            console.error(resJson);
+                            alert("傳送失敗，錯誤原因：" + (resJson.message || "未知伺服器錯誤"));
+                        }
+                    })
+                    .catch(error => {
+                        console.error(error);
+                        alert("網路連線異常，請稍候再試。");
+                    })
+                    .finally(() => {
+                        submitBtn.innerText = "送出意見回饋 ➜";
+                        submitBtn.disabled = false;
+                    });
+                });
             }
         });
 
