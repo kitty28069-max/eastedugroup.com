@@ -92,6 +92,15 @@
             align-items: center;
             gap: 12px;
             z-index: 1100;
+            cursor: pointer;
+        }
+
+        /* 新增官網 LOGO 圖片樣式 */
+        .logo-img {
+            height: 42px;
+            width: auto;
+            object-fit: contain;
+            display: block;
         }
 
         .logo-icon {
@@ -358,6 +367,20 @@
         }
 
         /* 數據成就欄 */
+        .stats-bar {
+            max-width: 1200px;
+            margin: -60px auto 0;
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
         .stats-bar {
             max-width: 1200px;
             margin: -60px auto 0;
@@ -815,13 +838,6 @@
             margin-bottom: 30px;
         }
 
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-            margin-bottom: 30px;
-        }
-
         .form-group {
             display: flex;
             flex-direction: column;
@@ -1072,13 +1088,15 @@
 
     <div class="header-container">
         <header>
-            <div class="logo-area">
-                <div class="logo-icon">東</div>
+            <!-- LOGO 修改處：包覆官網連結，並加入圖片與備援字體機制 -->
+            <a href="https://eastedugroup.com/" class="logo-area" title="前往東德教育集團官網">
+                <img src="https://eastedugroup.com/logo.png" alt="東德教育集團 LOGO" class="logo-img" onload="document.getElementById('logo-fallback').style.display='none';" onerror="this.style.display='none';">
+                <div id="logo-fallback" class="logo-icon">東</div>
                 <div class="logo-text">
                     <h1>東德教育集團</h1>
                     <p>East Education Group</p>
                 </div>
-            </div>
+            </a>
             <button class="menu-toggle" aria-label="選單開關">
                 <span></span>
                 <span></span>
@@ -1176,7 +1194,7 @@
                     <div class="quick-img" style="background-image: url('https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=600&q=80');"></div>
                     <div class="quick-content">
                         <h3>國小全面奠基與私中專班</h3>
-                        <p>平日正英美語精緻引導、資優數學思考特訓，以及針對北部頂尖私中入學考的黃金全科衝刺計畫。</p>
+                        <p>平日正英美語精緻引引導、資優數學思考特訓，以及針對北部頂尖私中入學考的黃金全科衝刺計畫。</p>
                         <a href="#elementary" class="quick-link" onclick="switchView('elementary')">進入國小專區 ➜</a>
                     </div>
                 </div>
@@ -1218,7 +1236,6 @@
             <p>在混亂的教改洪流中，國小高年級是決定孩子未來數理邏輯與語文廣度的分水嶺。東德採取超前部署策略，穩紮穩打。</p>
         </div>
 
-        <!-- 國小特色主圖 -->
         <div class="subpage-banner-container">
             <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1400&q=80" class="subpage-banner-img" alt="國小生開心學習">
         </div>
@@ -1270,7 +1287,7 @@
                 <tbody>
                     <tr>
                         <td class="highlight-td">數論與幾何思維</td>
-                        <td>質數合數規律探討、平面圖形剪拼與立體空間旋轉透視感建立、魔方與拓撲邏輯引導。</td>
+                        <td>質數合數規律探討、平面圖形剪拼與立體空間旋轉透視感建立、魔方與拓撲邏輯引引導。</td>
                         <td>徹底破除高年級數學恐懼症。</td>
                     </tr>
                     <tr>
@@ -1308,7 +1325,6 @@
             <p>面對國中會考 (CAPA) 三等級四標示的殘酷考驗，一題之差即決定是否與建中、北一女、師大附中擦身而過。東德以全面A++為終極考核指標。</p>
         </div>
 
-        <!-- 國中專屬情境圖 -->
         <div class="subpage-banner-container">
             <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80" class="subpage-banner-img" alt="專注的國中生與錯題本">
         </div>
@@ -1362,7 +1378,6 @@
             <p>108課綱新制下，高中生面臨的是「學測素養題型、混合題型、手寫獨立計分、學習歷程檔案」的多重夾擊。東德全方位助你考取醫學系、台清交成政等頂尖志願。</p>
         </div>
 
-        <!-- 高中專屬情境圖 -->
         <div class="subpage-banner-container">
             <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80" class="subpage-banner-img" alt="高中生討論與學習歷程">
         </div>
@@ -1423,7 +1438,6 @@
             <p>每位孩子都是獨一無二的個體。當集體上課無法精準解決孩子的個別落後或超前需求時，東德 SESS (Science/Effectiveness/Sustainable/Spontaneous) 一對一系統是您的終極解決方案。</p>
         </div>
 
-        <!-- 一對一專屬情境圖 -->
         <div class="subpage-banner-container">
             <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80" class="subpage-banner-img" alt="SESS一對一精準教學">
         </div>
@@ -1444,7 +1458,7 @@
                 <div class="flow-step">
                     <div class="flow-step-num">03</div>
                     <h4>頂尖師資精準對接</h4>
-                    <p>嚴選經大數據適性匹配的王牌導師，進行全神貫注的一對一精準解惑與思維引導，拒絕無效陪伴。</p>
+                    <p>嚴選經大數據適性匹配的王牌導師，進行全神貫注的一對一精準解惑與思維引引導，拒絕無效陪伴。</p>
                 </div>
                 <div class="flow-step">
                     <div class="flow-step-num">04</div>
@@ -1594,9 +1608,7 @@
             <p style="text-align: center; color: var(--text-muted); font-size: 14px; margin-bottom: 36px;">您的寶貴意見是我們進步的動力。填寫後資料將會直接遞交給管理處，我們將竭誠為您改善。</p>
             
             <form id="feedback-form">
-                <!-- 這裡已幫你替換為你專屬的 Access Key 金鑰 -->
                 <input type="hidden" name="access_key" value="d8d5ac83-df2d-4fba-9ced-59a7ef576119">
-                
                 <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
                 <div class="form-grid">
@@ -1679,20 +1691,17 @@
 
     <script>
         function switchView(targetViewId) {
-            // 1. 隱藏所有頁面視圖
             const views = document.querySelectorAll('.page-view');
             views.forEach(view => {
                 view.classList.remove('active-view');
             });
 
-            // 2. 顯示目標視圖
             const targetView = document.getElementById(targetViewId);
             if (targetView) {
                 targetView.classList.add('active-view');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
 
-            // 3. 更新導覽列 active 狀態
             const navItems = document.querySelectorAll('.nav-item');
             navItems.forEach(item => {
                 item.classList.remove('active');
@@ -1702,12 +1711,10 @@
             });
         }
 
-        // 接管所有點擊事件與 Hash 錨點
         document.addEventListener('DOMContentLoaded', () => {
             const menuToggle = document.querySelector('.menu-toggle');
             const nav = document.querySelector('header nav');
 
-            // 漢堡選單展開/收合
             if (menuToggle && nav) {
                 menuToggle.addEventListener('click', () => {
                     menuToggle.classList.toggle('active');
@@ -1721,10 +1728,8 @@
                     e.preventDefault();
                     const target = item.getAttribute('data-target');
                     switchView(target);
-                    // 同步更新瀏覽器網址 Hash，避免使用者混淆
                     history.pushState(null, null, '#' + target);
 
-                    // 點選選單項目後，自動關閉手機版選單
                     if (menuToggle && nav) {
                         menuToggle.classList.remove('active');
                         nav.classList.remove('active');
@@ -1732,15 +1737,11 @@
                 });
             });
 
-            // 支援網址直接帶入 Hash 的直接跳轉機制 (如 index.html#junior)
             const currentHash = window.location.hash.replace('#', '');
             if (currentHash && document.getElementById(currentHash)) {
                 switchView(currentHash);
             }
 
-            // -------------------------------------------------------------
-            // WEB3FORMS 非同步發信機制邏輯
-            // -------------------------------------------------------------
             const feedbackForm = document.getElementById('feedback-form');
             const submitBtn = document.getElementById('submit-btn');
 
@@ -1748,7 +1749,6 @@
                 feedbackForm.addEventListener('submit', function(e) {
                     e.preventDefault();
                     
-                    // 檢查金鑰是否已被替換
                     const accessKeyInput = feedbackForm.querySelector('input[name="access_key"]');
                     if (accessKeyInput.value === "YOUR_ACCESS_KEY_HERE" || accessKeyInput.value.trim() === "") {
                         alert("🚨 系統提示：尚未設定發信金鑰！請在 HTML 中搜尋 'YOUR_ACCESS_KEY_HERE' 並更換為您的 Web3Forms Access Key，這樣您才能在 Email 裡收到回饋信喔！");
@@ -1792,7 +1792,6 @@
             }
         });
 
-        // 監聽瀏覽器上一頁/下一頁
         window.addEventListener('popstate', () => {
             const currentHash = window.location.hash.replace('#', '') || 'home';
             if (document.getElementById(currentHash)) {
