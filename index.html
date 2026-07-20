@@ -95,7 +95,6 @@
             cursor: pointer;
         }
 
-        /* 新增官網 LOGO 圖片樣式 */
         .logo-img {
             height: 42px;
             width: auto;
@@ -192,7 +191,6 @@
             box-shadow: 0 6px 20px rgba(184, 29, 36, 0.3);
         }
 
-        /* 漢堡選單按鈕 */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -213,7 +211,6 @@
             transition: var(--transition);
         }
 
-        /* 漢堡按鈕動畫效果 */
         .menu-toggle.active span:nth-child(1) {
             transform: translateY(9px) rotate(45deg);
         }
@@ -241,7 +238,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* 可重複使用的區塊標題與滿版橫幅圖片 */
         .section-header {
             text-align: center;
             max-width: 800px;
@@ -275,7 +271,6 @@
             font-size: 16px;
         }
 
-        /* 高寬度子頁面情境圖 */
         .subpage-banner-container {
             max-width: 1400px;
             margin: 0 auto 50px;
@@ -292,9 +287,144 @@
         }
 
         /* -------------------------------------------------------------
+           新增：廣告傳單輪播區塊 (Ad Flyers Carousel)
+        ------------------------------------------------------------- */
+        .flyer-carousel-section {
+            background-color: #F8FAF9;
+            padding: 70px 4%;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .carousel-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            background: white;
+            padding: 30px 20px;
+        }
+
+        .carousel-track-container {
+            overflow: hidden;
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            gap: 20px;
+        }
+
+        .carousel-card {
+            min-width: calc(33.333% - 14px);
+            background: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .carousel-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .carousel-card-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            background-color: #EEE;
+        }
+
+        .carousel-card-body {
+            padding: 16px;
+            text-align: center;
+        }
+
+        .carousel-card-body h4 {
+            font-size: 16px;
+            color: var(--secondary-navy);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .carousel-card-btn {
+            display: inline-block;
+            font-size: 13px;
+            color: var(--primary-red);
+            font-weight: 700;
+            border: 1px solid var(--primary-red);
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-top: 6px;
+            transition: var(--transition);
+        }
+
+        .carousel-card-btn:hover {
+            background-color: var(--primary-red);
+            color: white;
+        }
+
+        .carousel-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            background: white;
+            border: 1px solid var(--border-light);
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            color: var(--secondary-navy);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .carousel-nav-btn:hover {
+            background: var(--primary-red);
+            color: white;
+            border-color: var(--primary-red);
+        }
+
+        .carousel-prev { left: 10px; }
+        .carousel-next { right: 10px; }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #D1D5DB;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .dot.active {
+            background-color: var(--primary-red);
+            width: 24px;
+            border-radius: 10px;
+        }
+
+        /* -------------------------------------------------------------
            4. 分頁內容：首頁 (Home View)
         ------------------------------------------------------------- */
-        /* Hero 大橫幅 */
         .hero-section {
             background: linear-gradient(135deg, rgba(17, 30, 56, 0.95) 30%, rgba(138, 18, 24, 0.4) 100%), 
                         url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1920&q=80') center/cover;
@@ -366,7 +496,6 @@
             border-color: white;
         }
 
-        /* 數據成就欄 */
         .stats-bar {
             max-width: 1200px;
             margin: -60px auto 0;
@@ -403,7 +532,6 @@
             font-weight: 500;
         }
 
-        /* 核心理念三大策略 */
         .pillars-section {
             padding: 100px 4%;
             max-width: 1400px;
@@ -459,7 +587,6 @@
             font-size: 15px;
         }
 
-        /* 快速導覽佈局（首頁引導至分頁） */
         .quick-nav-section {
             background-color: #F5F2F0;
             padding: 100px 4%;
@@ -559,7 +686,6 @@
             max-width: 900px;
         }
 
-        /* 高密度專業表格設定 */
         .info-table {
             width: 100%;
             border-collapse: collapse;
@@ -591,7 +717,6 @@
             color: var(--primary-red) !important;
         }
 
-        /* 核心特色清單項目 */
         .feature-bullet-list {
             list-style: none;
             margin-top: 24px;
@@ -806,7 +931,6 @@
             color: var(--text-dark);
         }
 
-        /* 意見回饋表單容器 */
         .appointment-form-container {
             max-width: 800px;
             margin: 0 auto;
@@ -981,10 +1105,7 @@
            11. 響應式佈局與 iPad / 手機適配 (RWD Rules)
         ------------------------------------------------------------- */
         @media (max-width: 1024px) {
-            /* 導覽列變更為行動裝置模式（漢堡選單） */
-            .menu-toggle {
-                display: flex;
-            }
+            .menu-toggle { display: flex; }
 
             header nav {
                 position: fixed;
@@ -1003,36 +1124,19 @@
                 z-index: 1050;
             }
 
-            header nav.active {
-                right: 0;
-            }
+            header nav.active { right: 0; }
+            .nav-menu { flex-direction: column; gap: 20px; width: 100%; }
+            .nav-menu li a { font-size: 18px; display: block; width: 100%; }
+            .header-cta { width: 100%; text-align: center; }
 
-            .nav-menu {
-                flex-direction: column;
-                gap: 20px;
-                width: 100%;
-            }
-
-            .nav-menu li a {
-                font-size: 18px;
-                display: block;
-                width: 100%;
-            }
-
-            .header-cta {
-                width: 100%;
-                text-align: center;
-            }
-
-            /* 首頁大主視覺調整 */
             .hero-inner h2 { font-size: 42px; }
             .hero-inner p { font-size: 16px; }
 
-            /* 數據成就欄調整為雙欄 */
             .stats-bar { grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: -40px; }
             .stat-item { border-right: none; }
             
-            /* 網格改單欄 */
+            .carousel-card { min-width: calc(50% - 10px); }
+
             .quick-grid { grid-template-columns: 1fr; }
             .grid-two-col { grid-template-columns: 1fr; }
             .testimonial-grid { grid-template-columns: 1fr; }
@@ -1045,8 +1149,9 @@
             .hero-inner h2 { font-size: 32px; }
             .stats-bar { grid-template-columns: 1fr; padding: 24px; }
             
+            .carousel-card { min-width: 100%; }
+
             .section-header h2 { font-size: 28px; }
-            
             .course-layout-box { padding: 24px; }
             .course-title-tag { font-size: 20px; flex-direction: column; align-items: flex-start; gap: 8px; }
             
@@ -1054,10 +1159,8 @@
             .form-grid { grid-template-columns: 1fr; }
             .form-group.full-width { grid-column: span 1; }
             
-            /* 表格防破版，讓其可橫向滾動 */
             .info-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
             
-            /* 讓首頁導覽小卡在小螢幕改為垂直堆疊 */
             .quick-box { flex-direction: column; }
             .quick-img { width: 100%; height: 200px; }
             .quick-content { width: 100%; padding: 24px; }
@@ -1074,9 +1177,7 @@
 
     <div class="header-container">
         <header>
-            <!-- LOGO 修改處：包覆官網連結，並加入圖片與備援字體機制 -->
-            <a href="https://eastedugroup.com/" class="logo-area" title="前往東德教育集團官網">
-                <!-- 這裡已將 src 替換為你的新盾牌 LOGO 網址 -->
+            <a href="#home" class="logo-area" onclick="switchView('home')" title="回到首頁">
                 <img src="https://i.pinimg.com/736x/4d/28/da/4d28da5125268e855598efcc22794b41.jpg" alt="東德教育集團 LOGO" class="logo-img" onload="document.getElementById('logo-fallback').style.display='none';" onerror="this.style.display='none';">
                 <div id="logo-fallback" class="logo-icon">東</div>
                 <div class="logo-text">
@@ -1117,6 +1218,107 @@
                     <a href="https://docs.google.com/forms/d/1GCgxCbQr7yKA2WN-SJNl5UpskzaWBJqP1b-l2eOwheo/viewform" target="_blank" class="btn-primary">免費試讀七天 / 預約診斷</a>
                     <a href="#sess" class="btn-secondary" onclick="switchView('sess')">了解一對一機制</a>
                 </div>
+            </div>
+        </section>
+
+        <!-- 新增：廣告單與最新招生傳單輪播區塊 -->
+        <section class="flyer-carousel-section">
+            <div class="section-header" style="margin-bottom: 24px;">
+                <span class="section-badge">RECENT PROMOTIONS</span>
+                <h2>最新招生傳單與熱門活動</h2>
+                <p>左右滑動查看最新各學段招生單與特訓講座，點擊可直接開啟高清傳單介紹。</p>
+            </div>
+
+            <div class="carousel-wrapper">
+                <button class="carousel-nav-btn carousel-prev" id="prevBtn">&#10094;</button>
+                <div class="carousel-track-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        
+                        <!-- 廣告卡片 1 -->
+                        <div class="carousel-card">
+                            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=600&q=80" alt="廣告傳單 1" class="carousel-card-img">
+                            <div class="carousel-card-body">
+                                <h4>資優數學衝刺單頁</h4>
+                                <a href="https://www.pinterest.com/pin/1105493039818539499/" target="_blank" class="carousel-card-btn">查看傳單 ➔</a>
+                            </div>
+                        </div>
+
+                        <!-- 廣告卡片 2 -->
+                        <div class="carousel-card">
+                            <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=600&q=80" alt="廣告傳單 2" class="carousel-card-img">
+                            <div class="carousel-card-body">
+                                <h4>私中全科模擬試聽</h4>
+                                <a href="https://pin.it/3YHFe3dnY" target="_blank" class="carousel-card-btn">查看傳單 ➔</a>
+                            </div>
+                        </div>
+
+                        <!-- 廣告卡片 3 -->
+                        <div class="carousel-card">
+                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" alt="廣告傳單 3" class="carousel-card-img">
+                            <div class="carousel-card-body">
+                                <h4>國中會考 A++ 衝刺班</h4>
+                                <a href="https://pin.it/4i02PySAD" target="_blank" class="carousel-card-btn">查看傳單 ➔</a>
+                            </div>
+                        </div>
+
+                        <!-- 廣告卡片 4 -->
+                        <div class="carousel-card">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="廣告傳單 4" class="carousel-card-img">
+                            <div class="carousel-card-body">
+                                <h4>高中學測英數複習班</h4>
+                                <a href="https://pin.it/7hFns6UGn" target="_blank" class="carousel-card-btn">查看傳單 ➔</a>
+                            </div>
+                        </div>
+
+                        <!-- 廣告卡片 5 -->
+                        <div class="carousel-card">
+                            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80" alt="廣告傳單 5" class="carousel-card-img">
+                            <div class="carousel-card-body">
+                                <h4>SESS 一對一個別指導</h4>
+                                <a href="https://pin.it/39TR8OeaZ" target="_blank" class="carousel-card-btn">查看傳單 ➔</a>
+                            </div>
+                        </div>
+
+                        <!-- 廣告卡片 6 -->
+                        <div class="carousel-card">
+                            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80" alt="廣告傳單 6" class="carousel-card-img">
+                            <div class="carousel-card-body">
+                                <h4>國小正英美語夏令營</h4>
+                                <a href="https://pin.it/dpdaaQGpk" target="_blank" class="carousel-card-btn">查看傳單 ➔</a>
+                            </div>
+                        </div>
+
+                        <!-- 廣告卡片 7 -->
+                        <div class="carousel-card">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="廣告傳單 7" class="carousel-card-img">
+                            <div class="carousel-card-body">
+                                <h4>國二理化觀念破解特訓</h4>
+                                <a href="https://pin.it/2RasVzwSc" target="_blank" class="carousel-card-btn">查看傳單 ➔</a>
+                            </div>
+                        </div>
+
+                        <!-- 廣告卡片 8 -->
+                        <div class="carousel-card">
+                            <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80" alt="廣告傳單 8" class="carousel-card-img">
+                            <div class="carousel-card-body">
+                                <h4>108課綱素養題型講座</h4>
+                                <a href="https://pin.it/7iloowAge" target="_blank" class="carousel-card-btn">查看傳單 ➔</a>
+                            </div>
+                        </div>
+
+                        <!-- 廣告卡片 9 -->
+                        <div class="carousel-card">
+                            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" alt="廣告傳單 9" class="carousel-card-img">
+                            <div class="carousel-card-body">
+                                <h4>秋季開學免費試讀週</h4>
+                                <a href="https://pin.it/5C1MCVk7K" target="_blank" class="carousel-card-btn">查看傳單 ➔</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <button class="carousel-nav-btn carousel-next" id="nextBtn">&#10095;</button>
+                <div class="carousel-dots" id="carouselDots"></div>
             </div>
         </section>
 
@@ -1699,6 +1901,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
+            // 漢堡選單控制
             const menuToggle = document.querySelector('.menu-toggle');
             const nav = document.querySelector('header nav');
 
@@ -1709,6 +1912,7 @@
                 });
             }
 
+            // 導覽列點擊
             const navItems = document.querySelectorAll('.nav-item');
             navItems.forEach(item => {
                 item.addEventListener('click', (e) => {
@@ -1729,6 +1933,105 @@
                 switchView(currentHash);
             }
 
+            // -------------------------------------------------------------
+            // 廣告傳單輪播邏輯 (Flyer Carousel JavaScript)
+            // -------------------------------------------------------------
+            const track = document.getElementById('carouselTrack');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const dotsContainer = document.getElementById('carouselDots');
+            const cards = document.querySelectorAll('.carousel-card');
+
+            if (track && cards.length > 0) {
+                let currentIndex = 0;
+
+                const getVisibleCards = () => {
+                    if (window.innerWidth <= 768) return 1;
+                    if (window.innerWidth <= 1024) return 2;
+                    return 3;
+                };
+
+                const getMaxIndex = () => {
+                    return cards.length - getVisibleCards();
+                };
+
+                const createDots = () => {
+                    dotsContainer.innerHTML = '';
+                    const totalDots = getMaxIndex() + 1;
+                    for (let i = 0; i < totalDots; i++) {
+                        const dot = document.createElement('div');
+                        dot.classList.add('dot');
+                        if (i === 0) dot.classList.add('active');
+                        dot.addEventListener('click', () => goToSlide(i));
+                        dotsContainer.appendChild(dot);
+                    }
+                };
+
+                const updateDots = () => {
+                    const dots = document.querySelectorAll('.dot');
+                    dots.forEach((dot, idx) => {
+                        dot.classList.toggle('active', idx === currentIndex);
+                    });
+                };
+
+                const goToSlide = (index) => {
+                    const maxIndex = getMaxIndex();
+                    if (index < 0) index = 0;
+                    if (index > maxIndex) index = maxIndex;
+                    
+                    currentIndex = index;
+                    const cardWidth = cards[0].getBoundingClientRect().width + 20; // 20px是gap
+                    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+                    updateDots();
+                };
+
+                nextBtn.addEventListener('click', () => {
+                    if (currentIndex < getMaxIndex()) {
+                        goToSlide(currentIndex + 1);
+                    } else {
+                        goToSlide(0); // 循環輪播
+                    }
+                });
+
+                prevBtn.addEventListener('click', () => {
+                    if (currentIndex > 0) {
+                        goToSlide(currentIndex - 1);
+                    } else {
+                        goToSlide(getMaxIndex());
+                    }
+                });
+
+                // 自動播放
+                let autoSlide = setInterval(() => {
+                    if (currentIndex < getMaxIndex()) {
+                        goToSlide(currentIndex + 1);
+                    } else {
+                        goToSlide(0);
+                    }
+                }, 4000);
+
+                // 滑鼠移入暫停自動播放
+                const carouselWrapper = document.querySelector('.carousel-wrapper');
+                carouselWrapper.addEventListener('mouseenter', () => clearInterval(autoSlide));
+                carouselWrapper.addEventListener('mouseleave', () => {
+                    autoSlide = setInterval(() => {
+                        if (currentIndex < getMaxIndex()) {
+                            goToSlide(currentIndex + 1);
+                        } else {
+                            goToSlide(0);
+                        }
+                    }, 4000);
+                });
+
+                window.addEventListener('resize', () => {
+                    createDots();
+                    goToSlide(0);
+                });
+
+                createDots();
+            }
+
+            // 表單提交處理
             const feedbackForm = document.getElementById('feedback-form');
             const submitBtn = document.getElementById('submit-btn');
 
@@ -1738,7 +2041,7 @@
                     
                     const accessKeyInput = feedbackForm.querySelector('input[name="access_key"]');
                     if (accessKeyInput.value === "YOUR_ACCESS_KEY_HERE" || accessKeyInput.value.trim() === "") {
-                        alert("🚨 系統提示：尚未設定發信金鑰！請在 HTML 中搜尋 'YOUR_ACCESS_KEY_HERE' 並更換為您的 Web3Forms Access Key，這樣您才能在 Email 裡收到回饋信喔！");
+                        alert("🚨 系統提示：尚未設定發信金鑰！請在 HTML 中搜尋 'YOUR_ACCESS_KEY_HERE' 並更換為您的 Web3Forms Access Key！");
                         return;
                     }
 
