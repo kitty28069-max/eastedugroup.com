@@ -6,6 +6,11 @@
     <title>東德教育集團 | 頂級客製化升學與專業一對一課輔機構</title>
     <meta name="description" content="東德教育集團深耕內湖。引領108課綱素養教育，提供國小、國中、高中全科精密指導、私中頂尖衝刺班、及獨家SESS一對一客製化課程。七天免費試聽預約中。">
     
+    <!-- Open Graph 社群分享標籤 -->
+    <meta property="og:title" content="東德教育集團 | 頂級客製化升學與專業一對一課輔機構">
+    <meta property="og:description" content="拒絕流水線式的集體教學。東德教育集團導入獨家 SESS 精密診斷系統，為每位孩子建立專屬學習地圖。">
+    <meta property="og:type" content="website">
+
     <!-- Google Search Console 驗證代碼 -->
     <meta name="google-site-verification" content="I-fIC2484QLrpwiTTLc4kc8QyDEKBbUVqEMCAISuoaA" />
     
@@ -287,7 +292,7 @@
         }
 
         /* -------------------------------------------------------------
-           新增：廣告傳單輪播區塊 (Ad Flyers Carousel)
+           4. 廣告傳單輪播區塊 (Ad Flyers Carousel)
         ------------------------------------------------------------- */
         .flyer-carousel-section {
             background-color: #F8FAF9;
@@ -310,6 +315,7 @@
             overflow: hidden;
             width: 100%;
             border-radius: 12px;
+            touch-action: pan-y;
         }
 
         .carousel-track {
@@ -423,7 +429,7 @@
         }
 
         /* -------------------------------------------------------------
-           4. 分頁內容：首頁 (Home View)
+           5. 分頁內容：首頁 (Home View)
         ------------------------------------------------------------- */
         .hero-section {
             background: linear-gradient(135deg, rgba(17, 30, 56, 0.95) 30%, rgba(138, 18, 24, 0.4) 100%), 
@@ -650,7 +656,7 @@
         }
 
         /* -------------------------------------------------------------
-           5. 分頁內容：國小專區 (Elementary View)
+           6. 分頁內容：國小專區 (Elementary View)
         ------------------------------------------------------------- */
         .detail-page-padding {
             padding: 80px 4% 100px;
@@ -740,7 +746,7 @@
         }
 
         /* -------------------------------------------------------------
-           6. 分頁內容：國中與高中專區 (Junior / Senior High View)
+           7. 分頁內容：國中與高中專區 (Junior / Senior High View)
         ------------------------------------------------------------- */
         .grid-two-col {
             display: grid;
@@ -764,7 +770,7 @@
         }
 
         /* -------------------------------------------------------------
-           7. 分頁內容：SESS 一對一教學 (SESS One-on-One View)
+           8. 分頁內容：SESS 一對一教學 (SESS One-on-One View)
         ------------------------------------------------------------- */
         .sess-flow-container {
             display: grid;
@@ -808,7 +814,7 @@
         }
 
         /* -------------------------------------------------------------
-           8. 分頁內容：家長反饋與榜單 (Feedback & Board View)
+           9. 分頁內容：家長反饋與榜單 (Feedback & Board View)
         ------------------------------------------------------------- */
         .testimonial-grid {
             display: grid;
@@ -864,7 +870,7 @@
         }
 
         /* -------------------------------------------------------------
-           9. 分頁內容：關於分校與諮詢 (Branches View)
+           10. 分頁內容：關於分校與諮詢 (Branches View)
         ------------------------------------------------------------- */
         .branch-card-grid {
             display: grid;
@@ -997,7 +1003,7 @@
         }
 
         /* -------------------------------------------------------------
-           10. 常駐聯絡與高級頁尾 (Floating Elements & Footer)
+           11. 常駐聯絡與高級頁尾 (Floating Elements & Footer)
         ------------------------------------------------------------- */
         .floating-action-container {
             position: fixed;
@@ -1102,7 +1108,7 @@
         }
 
         /* -------------------------------------------------------------
-           11. 響應式佈局與 iPad / 手機適配 (RWD Rules)
+           12. 響應式佈局與 iPad / 手機適配 (RWD Rules)
         ------------------------------------------------------------- */
         @media (max-width: 1024px) {
             .menu-toggle { display: flex; }
@@ -1178,8 +1184,8 @@
     <div class="header-container">
         <header>
             <a href="#home" class="logo-area" onclick="switchView('home')" title="回到首頁">
-                <img src="https://i.pinimg.com/736x/4d/28/da/4d28da5125268e855598efcc22794b41.jpg" alt="東德教育集團 LOGO" class="logo-img" onload="document.getElementById('logo-fallback').style.display='none';" onerror="this.style.display='none';">
-                <div id="logo-fallback" class="logo-icon">東</div>
+                <img src="https://i.pinimg.com/736x/4d/28/da/4d28da5125268e855598efcc22794b41.jpg" alt="東德教育集團 LOGO" class="logo-img" onload="document.getElementById('logo-fallback').style.display='none';" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex';">
+                <div id="logo-fallback" class="logo-icon" style="display: none;">東</div>
                 <div class="logo-text">
                     <h1>東德教育集團</h1>
                     <p>East Education Group</p>
@@ -1200,7 +1206,7 @@
                     <li class="nav-item" data-target="feedback"><a href="#feedback">家長口碑</a></li>
                     <li class="nav-item" data-target="branches"><a href="#branches">分校諮詢</a></li>
                 </ul>
-                <a href="https://docs.google.com/forms/d/1GCgxCbQr7yKA2WN-SJNl5UpskzaWBJqP1b-l2eOwheo/viewform" target="_blank" class="header-cta">預約7天免費試聽</a>
+                <a href="https://docs.google.com/forms/d/1GCgxCbQr7yKA2WN-SJNl5UpskzaWBJqP1b-l2eOwheo/viewform" target="_blank" rel="noopener noreferrer" class="header-cta">預約7天免費試聽</a>
             </nav>
         </header>
     </div>
@@ -1215,13 +1221,13 @@
                 <h2>客製化的專屬補習服務<br>是面對混亂教改的唯一選擇</h2>
                 <p>拒絕流水線式的集體教學。東德教育集團導入獨家 SESS 精密診斷系統，為每位孩子建立專屬學習地圖，對症下藥解決段考與大考痛點，陪孩子一起看見進步。</p>
                 <div class="hero-buttons">
-                    <a href="https://docs.google.com/forms/d/1GCgxCbQr7yKA2WN-SJNl5UpskzaWBJqP1b-l2eOwheo/viewform" target="_blank" class="btn-primary">免費試讀七天 / 預約診斷</a>
+                    <a href="https://docs.google.com/forms/d/1GCgxCbQr7yKA2WN-SJNl5UpskzaWBJqP1b-l2eOwheo/viewform" target="_blank" rel="noopener noreferrer" class="btn-primary">免費試讀七天 / 預約診斷</a>
                     <a href="#sess" class="btn-secondary" onclick="switchView('sess')">了解一對一機制</a>
                 </div>
             </div>
         </section>
 
-        <!-- 新增：廣告單與最新招生傳單輪播區塊 -->
+        <!-- 廣告單與最新招生傳單輪播區塊 -->
         <section class="flyer-carousel-section">
             <div class="section-header" style="margin-bottom: 24px;">
                 <span class="section-badge">RECENT PROMOTIONS</span>
@@ -1230,94 +1236,94 @@
             </div>
 
             <div class="carousel-wrapper">
-                <button class="carousel-nav-btn carousel-prev" id="prevBtn">&#10094;</button>
+                <button class="carousel-nav-btn carousel-prev" id="prevBtn" aria-label="上一張">&#10094;</button>
                 <div class="carousel-track-container">
                     <div class="carousel-track" id="carouselTrack">
                         
                         <!-- 廣告卡片 1 -->
                         <div class="carousel-card">
-                            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=600&q=80" alt="廣告傳單 1" class="carousel-card-img">
+                            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=600&q=80" alt="資優數學衝刺單頁" class="carousel-card-img">
                             <div class="carousel-card-body">
                                 <h4>資優數學衝刺單頁</h4>
-                                <a href="https://www.pinterest.com/pin/1105493039818539499/" target="_blank" class="carousel-card-btn">查看傳單 ➔</a>
+                                <a href="https://www.pinterest.com/pin/1105493039818539499/" target="_blank" rel="noopener noreferrer" class="carousel-card-btn">查看傳單 ➔</a>
                             </div>
                         </div>
 
                         <!-- 廣告卡片 2 -->
                         <div class="carousel-card">
-                            <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=600&q=80" alt="廣告傳單 2" class="carousel-card-img">
+                            <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=600&q=80" alt="私中全科模擬試聽" class="carousel-card-img">
                             <div class="carousel-card-body">
                                 <h4>私中全科模擬試聽</h4>
-                                <a href="https://pin.it/3YHFe3dnY" target="_blank" class="carousel-card-btn">查看傳單 ➔</a>
+                                <a href="https://pin.it/3YHFe3dnY" target="_blank" rel="noopener noreferrer" class="carousel-card-btn">查看傳單 ➔</a>
                             </div>
                         </div>
 
                         <!-- 廣告卡片 3 -->
                         <div class="carousel-card">
-                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" alt="廣告傳單 3" class="carousel-card-img">
+                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" alt="國中會考 A++ 衝刺班" class="carousel-card-img">
                             <div class="carousel-card-body">
                                 <h4>國中會考 A++ 衝刺班</h4>
-                                <a href="https://pin.it/4i02PySAD" target="_blank" class="carousel-card-btn">查看傳單 ➔</a>
+                                <a href="https://pin.it/4i02PySAD" target="_blank" rel="noopener noreferrer" class="carousel-card-btn">查看傳單 ➔</a>
                             </div>
                         </div>
 
                         <!-- 廣告卡片 4 -->
                         <div class="carousel-card">
-                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="廣告傳單 4" class="carousel-card-img">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="高中學測英數複習班" class="carousel-card-img">
                             <div class="carousel-card-body">
                                 <h4>高中學測英數複習班</h4>
-                                <a href="https://pin.it/7hFns6UGn" target="_blank" class="carousel-card-btn">查看傳單 ➔</a>
+                                <a href="https://pin.it/7hFns6UGn" target="_blank" rel="noopener noreferrer" class="carousel-card-btn">查看傳單 ➔</a>
                             </div>
                         </div>
 
                         <!-- 廣告卡片 5 -->
                         <div class="carousel-card">
-                            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80" alt="廣告傳單 5" class="carousel-card-img">
+                            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80" alt="SESS 一對一個別指導" class="carousel-card-img">
                             <div class="carousel-card-body">
                                 <h4>SESS 一對一個別指導</h4>
-                                <a href="https://pin.it/39TR8OeaZ" target="_blank" class="carousel-card-btn">查看傳單 ➔</a>
+                                <a href="https://pin.it/39TR8OeaZ" target="_blank" rel="noopener noreferrer" class="carousel-card-btn">查看傳單 ➔</a>
                             </div>
                         </div>
 
                         <!-- 廣告卡片 6 -->
                         <div class="carousel-card">
-                            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80" alt="廣告傳單 6" class="carousel-card-img">
+                            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80" alt="國小正英美語夏令營" class="carousel-card-img">
                             <div class="carousel-card-body">
                                 <h4>國小正英美語夏令營</h4>
-                                <a href="https://pin.it/dpdaaQGpk" target="_blank" class="carousel-card-btn">查看傳單 ➔</a>
+                                <a href="https://pin.it/dpdaaQGpk" target="_blank" rel="noopener noreferrer" class="carousel-card-btn">查看傳單 ➔</a>
                             </div>
                         </div>
 
                         <!-- 廣告卡片 7 -->
                         <div class="carousel-card">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="廣告傳單 7" class="carousel-card-img">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="國二理化觀念破解特訓" class="carousel-card-img">
                             <div class="carousel-card-body">
                                 <h4>國二理化觀念破解特訓</h4>
-                                <a href="https://pin.it/2RasVzwSc" target="_blank" class="carousel-card-btn">查看傳單 ➔</a>
+                                <a href="https://pin.it/2RasVzwSc" target="_blank" rel="noopener noreferrer" class="carousel-card-btn">查看傳單 ➔</a>
                             </div>
                         </div>
 
                         <!-- 廣告卡片 8 -->
                         <div class="carousel-card">
-                            <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80" alt="廣告傳單 8" class="carousel-card-img">
+                            <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80" alt="108課綱素養題型講座" class="carousel-card-img">
                             <div class="carousel-card-body">
                                 <h4>108課綱素養題型講座</h4>
-                                <a href="https://pin.it/7iloowAge" target="_blank" class="carousel-card-btn">查看傳單 ➔</a>
+                                <a href="https://pin.it/7iloowAge" target="_blank" rel="noopener noreferrer" class="carousel-card-btn">查看傳單 ➔</a>
                             </div>
                         </div>
 
                         <!-- 廣告卡片 9 -->
                         <div class="carousel-card">
-                            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" alt="廣告傳單 9" class="carousel-card-img">
+                            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" alt="秋季開學免費試讀週" class="carousel-card-img">
                             <div class="carousel-card-body">
                                 <h4>秋季開學免費試讀週</h4>
-                                <a href="https://pin.it/5C1MCVk7K" target="_blank" class="carousel-card-btn">查看傳單 ➔</a>
+                                <a href="https://pin.it/5C1MCVk7K" target="_blank" rel="noopener noreferrer" class="carousel-card-btn">查看傳單 ➔</a>
                             </div>
                         </div>
 
                     </div>
                 </div>
-                <button class="carousel-nav-btn carousel-next" id="nextBtn">&#10095;</button>
+                <button class="carousel-nav-btn carousel-next" id="nextBtn" aria-label="下一張">&#10095;</button>
                 <div class="carousel-dots" id="carouselDots"></div>
             </div>
         </section>
@@ -1421,7 +1427,7 @@
     <div id="elementary" class="page-view detail-page-padding">
         <div class="section-header">
             <span class="section-badge">ELEMENTARY PROGRAM</span>
-            <h2>國小黃金啟盟與頂尖私中專班</h2>
+            <h2>國小黃金啟蒙與頂尖私中專班</h2>
             <p>在混亂的教改洪流中，國小高年級是決定孩子未來數理邏輯與語文廣度的分水嶺。東德採取超前部署策略，穩紮穩打。</p>
         </div>
 
@@ -1458,7 +1464,7 @@
             </table>
             <ul class="feature-bullet-list">
                 <li>全程使用東德嚴選原版英美核心教材，結合跨學科知識（科學、地理、歷史）進行深度閱讀。</li>
-                <li>每週安排雲端線上聽力口說一對一微調測驗，由專屬導師親自批改點評.</li>
+                <li>每週安排雲端線上聽力口說一對一微調測驗，由專屬導師親自批改點評。</li>
             </ul>
         </div>
 
@@ -1476,7 +1482,7 @@
                 <tbody>
                     <tr>
                         <td class="highlight-td">數論與幾何思維</td>
-                        <td>質數合數規律探討、平面圖形剪拼與立體空間旋轉透視感建立、魔方與拓撲邏輯引引導。</td>
+                        <td>質數合數規律探討、平面圖形剪拼與立體空間旋轉透視感建立、魔方與拓撲邏輯引導。</td>
                         <td>徹底破除高年級數學恐懼症。</td>
                     </tr>
                     <tr>
@@ -1544,7 +1550,7 @@
                     </tr>
                     <tr>
                         <td class="highlight-td">國三 (九年級)</td>
-                        <td>歷屆會考核心核心字彙、A級作文立意取材與結構佈局特訓、地科與全社會終極跨科統整。</td>
+                        <td>歷屆會考核心字彙、A級作文立意取材與結構佈局特訓、地科與全社會終極跨科統整。</td>
                         <td>圓形幾何證明與相似形極限挑戰、理化電磁學與功和能、歷屆複習全覆蓋。</td>
                         <td>展開三輪全面大總複習、15次全真聯合模擬會考，打造刀槍不入的實戰作戰心理。</td>
                     </tr>
@@ -1598,18 +1604,18 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="highlight-td">高一 </td>
+                        <td class="highlight-td">高一</td>
                         <td>銜接國高中巨大斷層，穩紮穩打完成必修學分，著重數英主科深度建立。</td>
-                        <td>引引導學生進行科展、自主學習計畫選題，建立清晰的研究方法論。</td>
+                        <td>引導學生進行科展、自主學習計畫選題，建立清晰的研究方法論。</td>
                     </tr>
                     <tr>
-                        <td class="highlight-td">高二 </td>
+                        <td class="highlight-td">高二</td>
                         <td>進入數A/數B分流、物化地生進階選修 or 文史哲深度思辨，段考維持校內繁星前段排名。</td>
                         <td>結合核心學科產出高品質「課程學習成果」，經顧問一對一指點修正，確保上傳成功率。</td>
                     </tr>
                     <tr>
-                        <td class="highlight-td">高三 </td>
-                        <td>全面啟動學測一輪與二輪複習，全力應戰一學測、二分科測驗，進行高強度倒數模擬衝刺。</td>
+                        <td class="highlight-td">高三</td>
+                        <td>全面啟動學測一輪與二輪複習，全力應戰學測與分科測驗，進行高強度倒數模擬衝刺。</td>
                         <td>提供多元表現統整心得、備審資料金牌修潤、各大學熱門科系實戰模擬面試。</td>
                     </tr>
                 </tbody>
@@ -1647,7 +1653,7 @@
                 <div class="flow-step">
                     <div class="flow-step-num">03</div>
                     <h4>頂尖師資精準對接</h4>
-                    <p>嚴選經大數據適性匹配的王牌導師，進行全神貫注的一對一精準解惑與思維引引導，拒絕無效陪伴。</p>
+                    <p>嚴選經大數據適性匹配的王牌導師，進行全神貫注的一對一精準解惑與思維引導，拒絕無效陪伴。</p>
                 </div>
                 <div class="flow-step">
                     <div class="flow-step-num">04</div>
@@ -1695,7 +1701,7 @@
             <div class="testi-card">
                 <div class="testi-student-info">
                     <div class="testi-avatar">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&h=150&q=80" alt="游媽媽頭像">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&h=150&q=80" alt="陳媽媽頭像">
                     </div>
                     <div class="testi-meta">
                         <h5>陳媽媽 (麗山國中九年級 游○杰之母親)</h5>
@@ -1740,7 +1746,7 @@
                     <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="東湖校區教室">
                 </div>
                 <div class="branch-header-banner">
-                    <h3>東湖校區 </h3>
+                    <h3>東湖校區</h3>
                     <p>東湖與康寧學子的最頂尖升學基地</p>
                 </div>
                 <div class="branch-body-content">
@@ -1831,7 +1837,7 @@
     </div>
 
     <div class="floating-action-container">
-        <a href="https://line.me" target="_blank" class="float-btn float-line">LINE<br>諮詢</a>
+        <a href="https://line.me" target="_blank" rel="noopener noreferrer" class="float-btn float-line">LINE<br>諮詢</a>
         <a href="tel:0226306133" class="float-btn float-phone">撥打<br>電話</a>
     </div>
 
@@ -1952,7 +1958,7 @@
                 };
 
                 const getMaxIndex = () => {
-                    return cards.length - getVisibleCards();
+                    return Math.max(0, cards.length - getVisibleCards());
                 };
 
                 const createDots = () => {
@@ -2001,6 +2007,28 @@
                     }
                 });
 
+                // 手機觸控滑動支援 (Touch Swipe Support)
+                let startX = 0;
+                let endX = 0;
+                const trackContainer = document.querySelector('.carousel-track-container');
+                if (trackContainer) {
+                    trackContainer.addEventListener('touchstart', (e) => {
+                        startX = e.touches[0].clientX;
+                    }, { passive: true });
+
+                    trackContainer.addEventListener('touchend', (e) => {
+                        endX = e.changedTouches[0].clientX;
+                        const diffX = startX - endX;
+                        if (Math.abs(diffX) > 40) {
+                            if (diffX > 0 && currentIndex < getMaxIndex()) {
+                                goToSlide(currentIndex + 1);
+                            } else if (diffX < 0 && currentIndex > 0) {
+                                goToSlide(currentIndex - 1);
+                            }
+                        }
+                    }, { passive: true });
+                }
+
                 // 自動播放
                 let autoSlide = setInterval(() => {
                     if (currentIndex < getMaxIndex()) {
@@ -2040,8 +2068,8 @@
                     e.preventDefault();
                     
                     const accessKeyInput = feedbackForm.querySelector('input[name="access_key"]');
-                    if (accessKeyInput.value === "YOUR_ACCESS_KEY_HERE" || accessKeyInput.value.trim() === "") {
-                        alert("🚨 系統提示：尚未設定發信金鑰！請在 HTML 中搜尋 'YOUR_ACCESS_KEY_HERE' 並更換為您的 Web3Forms Access Key！");
+                    if (!accessKeyInput || accessKeyInput.value.trim() === "" || accessKeyInput.value === "YOUR_ACCESS_KEY_HERE") {
+                        alert("🚨 系統提示：尚未設定發信金鑰！請在 HTML 中更換為您的 Web3Forms Access Key！");
                         return;
                     }
 
